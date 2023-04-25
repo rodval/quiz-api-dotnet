@@ -3,8 +3,7 @@
     public static class Erros
     {
         public static readonly string NotFound = "The resource was not found.";
-        public static readonly string InvalidUser = "The user does not have permissions.";
-        public static readonly string UnavailibleMovie = "The movie is not availible.";
-        public static readonly string NotEnoughStock = "There are not enough copies of the movie.";
+        public static readonly string BadLogin = "Credential are not correct.";
+        public static readonly string BadRequest = "Bad request.";
     }
 }
