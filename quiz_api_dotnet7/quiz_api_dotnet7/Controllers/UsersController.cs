@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using quiz_api_dotnet7.Interfaces;
 using quiz_api_dotnet7.Models;
+using quiz_api_dotnet7.Models.Auth;
 
 namespace quiz_api_dotnet7.Controllers
 {
@@ -19,19 +20,18 @@ namespace quiz_api_dotnet7.Controllers
             _service = service;
         }
 
-        [HttpPost]
-        [Route("Login")]
-        public ActionResult<LoginResponse> Login(LoginRequest login)
+        [HttpGet]
+        public ActionResult<IEnumerable<Category>> GetAll()
         {
-            var user = _service.Login(login);
+            var users = _service.GetAll();
 
-            if (user is not null)
+            if (users is not null)
             {
-                return Ok(user);
+                return Ok(users);
             }
             else
             {
-                return NotFound(); 
+                return NotFound();
             }
         }
 
@@ -48,13 +48,6 @@ namespace quiz_api_dotnet7.Controllers
             {
                 return NotFound();
             }
-        }
-
-        [HttpPost]
-        public IActionResult PostUser(User user)
-        {
-            var newUser = _service.PostUser(user);
-            return CreatedAtAction(nameof(GetById), new { userId = user!.Id }, user);
         }
     }
 }
