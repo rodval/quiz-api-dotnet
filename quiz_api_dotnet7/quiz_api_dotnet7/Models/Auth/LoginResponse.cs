@@ -1,6 +1,6 @@
 ﻿using NuGet.Common;
 
-namespace quiz_api_dotnet7.Models
+namespace quiz_api_dotnet7.Models.Auth
 {
     public class LoginResponse
     {
