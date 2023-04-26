@@ -11,6 +11,8 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 var jwt = builder.Configuration.GetSection("Jwt").Get<CustomJwt>();
 
+builder.Services.AddCors();
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => 
 {
     options.TokenValidationParameters = new TokenValidationParameters
@@ -32,7 +34,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 builder.Services.AddDbContext<QuizContext>(opt =>
     opt.UseInMemoryDatabase("QuizApi"));
@@ -40,6 +44,13 @@ builder.Services.AddDbContext<QuizContext>(opt =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseCors(op =>
+{
+    op.WithOrigins("http://localhost:3000");
+    op.AllowAnyMethod();
+    op.AllowAnyHeader();
+});
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
