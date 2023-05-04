@@ -1,4 +1,5 @@
-﻿using quiz_api_dotnet7.Models;
+﻿using Microsoft.AspNetCore.Identity;
+using quiz_api_dotnet7.Models;
 using quiz_api_dotnet7.Utilities;
 
 namespace quiz_api_dotnet7.Data
@@ -15,6 +16,8 @@ namespace quiz_api_dotnet7.Data
                 return;   // DB has been seeded
             }
 
+            var hasher = new PasswordHasher<User>();
+
             var users = new User[]
             {
                 new User
@@ -23,7 +26,7 @@ namespace quiz_api_dotnet7.Data
                     LastName = "Valladares",
                     UserName = "rod",
                     Email = "rodrigovalladares@gmail.com",
-                    Password = "Password$1",
+                    Password = hasher.HashPassword(null, "P@ssword1"),
                     Role = UserRoleType.Administrator
                 },
                 new User
@@ -32,7 +35,7 @@ namespace quiz_api_dotnet7.Data
                     LastName = "Sanchez",
                     UserName = "dan",
                     Email = "danielsanchez@gmail.com",
-                    Password = "Password$1",
+                    Password = hasher.HashPassword(null, "P@ssword1"),
                     Role = UserRoleType.Customer
                 }
             };

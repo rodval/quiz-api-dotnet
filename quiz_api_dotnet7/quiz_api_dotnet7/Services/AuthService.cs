@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure.Core;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using NuGet.Common;
@@ -32,10 +34,22 @@ namespace quiz_api_dotnet7.Services
             }
 
             var user = _context.Users
-                .Where(u => u.Email == login.Email && u.Password == login.Password)
+                .Where(u => u.Email == login.Email || u.UserName == login.Email)
                 .FirstOrDefault();
 
-            if (user == null)
+            if (user is null || user.Password is null || login.Password is null)
+            {
+                return new LoginResponse
+                {
+                    Success = false,
+                    Message = Errors.BadLogin,
+                    Result = ""
+                };
+            }
+
+            var hasherPassword = new PasswordHasher<User>().VerifyHashedPassword(null, user.Password, login.Password);
+
+            if (hasherPassword == PasswordVerificationResult.Failed)
             {
                 return new LoginResponse
                 {
