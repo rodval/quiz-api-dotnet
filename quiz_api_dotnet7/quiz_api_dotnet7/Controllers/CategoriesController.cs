@@ -23,7 +23,6 @@ namespace quiz_api_dotnet7.Controllers
             _service = service;
         }
 
-        // GET: api/Categories
         [HttpGet]
         public ActionResult<IEnumerable<Category>> GetAll()
         {

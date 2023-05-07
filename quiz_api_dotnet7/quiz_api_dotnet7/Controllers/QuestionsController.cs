@@ -23,10 +23,10 @@ namespace quiz_api_dotnet7.Controllers
             _service = service;
         }
 
-        [HttpGet("{categoryId}/{numberOfQuestion}")]
-        public ActionResult<IEnumerable<Question>> GetQuizQuestion(int categoryId, int numberOfQuestion)
+        [HttpGet]
+        public ActionResult<IEnumerable<Question>> GetQuizQuestion(int categoryId, int numberOfQuestions)
         {
-            var questions = _service.GetQuizQuestion(categoryId, numberOfQuestion);
+            var questions = _service.GetQuizQuestion(categoryId, numberOfQuestions);
 
             if (questions is not null)
             {

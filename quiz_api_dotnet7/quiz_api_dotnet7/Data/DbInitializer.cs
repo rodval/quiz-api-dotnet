@@ -60,13 +60,58 @@ namespace quiz_api_dotnet7.Data
                 {
                     QuestionTitle = "A Daniel Sanchez lo tienen bien controlad?",
                     QuestionType = QuestionType.TrueOrFalse,
-                    CategoryId = 1
+                    CategoryId = 1,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "Verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Falso",
+                            IsCorrect = false
+                        }
+                    }
                 },
                 new Question
                 {
                     QuestionTitle = "Rodrigo Lobo es adicto a LOL?",
                     QuestionType = QuestionType.TrueOrFalse,
                     CategoryId = 1,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "Verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Falso",
+                            IsCorrect = false
+                        }
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "2 + 2 es 6?",
+                    QuestionType = QuestionType.TrueOrFalse,
+                    CategoryId = 1,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "Verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Falso",
+                            IsCorrect = true
+                        }
+                    }
                 },
                 new Question
                 {
