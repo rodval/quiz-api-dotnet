@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using quiz_api_dotnet7.Models.Quiz;
+using System.ComponentModel.DataAnnotations;
 
 namespace quiz_api_dotnet7.Models
 {
@@ -8,5 +9,7 @@ namespace quiz_api_dotnet7.Models
 
         [Required]
         public string? Title { get; set; }
+
+        public ICollection<UserQuiz>? userQuizzes { get; set; }
     }
 }

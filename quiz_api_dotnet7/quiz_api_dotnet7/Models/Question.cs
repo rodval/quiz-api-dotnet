@@ -16,6 +16,6 @@ namespace quiz_api_dotnet7.Models
         public ICollection<Answer>? Answers { get; set; }
 
         public int CategoryId { get; set; }
-        public virtual Category? Categroy { get; set; }
+        public Category? Categroy { get; set; }
     }
 }

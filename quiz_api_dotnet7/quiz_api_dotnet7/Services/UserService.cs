@@ -22,12 +22,17 @@ namespace quiz_api_dotnet7.Services
 
         public IEnumerable<User> GetAll()
         {
-            return _context.Users.OrderBy(m => m.FirstName).ToList();
+            return _context.Users
+                .AsNoTracking()
+                .OrderBy(m => m.FirstName)
+                .ToList();
         }
 
         public User? GetById(int userId)
         {
-            return _context.Users.SingleOrDefault(u => u.Id == userId);
+            return _context.Users
+                .AsNoTracking()
+                .SingleOrDefault(u => u.Id == userId);
         }
     }
 }

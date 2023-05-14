@@ -1,4 +1,5 @@
-﻿using quiz_api_dotnet7.Utilities;
+﻿using quiz_api_dotnet7.Models.Quiz;
+using quiz_api_dotnet7.Utilities;
 using System.ComponentModel.DataAnnotations;
 
 namespace quiz_api_dotnet7.Models

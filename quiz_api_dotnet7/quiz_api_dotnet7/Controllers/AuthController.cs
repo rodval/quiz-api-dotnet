@@ -12,7 +12,6 @@ namespace quiz_api_dotnet7.Controllers
     {
         private readonly IAuthService _service;
 
-
         public AuthController(IAuthService service)
         {
             _service = service;

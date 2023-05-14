@@ -5,28 +5,29 @@ using Microsoft.EntityFrameworkCore;
 using quiz_api_dotnet7.Interfaces;
 using quiz_api_dotnet7.Models;
 using quiz_api_dotnet7.Models.Auth;
+using quiz_api_dotnet7.Models.Quiz;
 
 namespace quiz_api_dotnet7.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UserQuizController : ControllerBase
     {
-        private readonly IUserService _service;
+        private readonly IUserQuizService _service;
 
-        public UsersController(IUserService service)
+        public UserQuizController(IUserQuizService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Category>> GetAll()
+        public ActionResult<IEnumerable<UserQuiz>> GetAll()
         {
-            var users = _service.GetAll();
+            var quizzes = _service.GetAll();
 
-            if (users is not null)
+            if (quizzes is not null)
             {
-                return Ok(users);
+                return Ok(quizzes);
             }
             else
             {
@@ -34,14 +35,14 @@ namespace quiz_api_dotnet7.Controllers
             }
         }
 
-        [HttpGet("{userId}")]
-        public ActionResult<User> GetById(int userId)
+        [HttpPost]
+        public ActionResult<UserQuizResponse> SaveUserQuiz([FromBody] UserQuiz userQuiz)
         {
-            var user = _service.GetById(userId);
+            var quiz = _service.CheckAnsweredQuiz(userQuiz);
 
-            if (user is not null)
+            if (quiz is not null)
             {
-                return Ok(user);
+                return Ok(quiz);
             }
             else
             {

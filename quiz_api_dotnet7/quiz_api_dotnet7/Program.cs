@@ -3,10 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using quiz_api_dotnet7.Data;
 using quiz_api_dotnet7.Interfaces;
-using quiz_api_dotnet7.Models;
+using quiz_api_dotnet7.Models.Auth;
 using quiz_api_dotnet7.Services;
 using System.Configuration;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 var jwt = builder.Configuration.GetSection("Jwt").Get<CustomJwt>();
@@ -38,9 +39,14 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IQuestionService, QuestionService>();
+builder.Services.AddScoped<IUserQuizService, UserQuizService>();
 
 builder.Services.AddDbContext<QuizContext>(opt =>
     opt.UseInMemoryDatabase("QuizApi"));
+
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
 
 var app = builder.Build();
 

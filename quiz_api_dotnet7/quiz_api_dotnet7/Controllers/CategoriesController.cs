@@ -17,7 +17,6 @@ namespace quiz_api_dotnet7.Controllers
     {
         private readonly ICategoryService _service;
 
-
         public CategoriesController(ICategoryService service)
         {
             _service = service;

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using quiz_api_dotnet7.Models;
+using quiz_api_dotnet7.Models.Quiz;
 using quiz_api_dotnet7.Utilities;
 
 namespace quiz_api_dotnet7.Data
@@ -788,13 +789,44 @@ namespace quiz_api_dotnet7.Data
                     }
 
                   },
+            };
 
-
+            var userQuizzes = new UserQuiz[]
+            {
+                new UserQuiz
+                {
+                    Id = 1,
+                    CategoryId= 1,
+                    UserId = 1,
+                    Score = 10,
+                },
+                new UserQuiz
+                {
+                    Id = 2,
+                    CategoryId= 2,
+                    UserId = 1,
+                    Score = 5,
+                },
+                new UserQuiz
+                {
+                    Id = 3,
+                    CategoryId= 1,
+                    UserId = 2,
+                    Score = 5,
+                },
+                new UserQuiz
+                {
+                    Id = 4,
+                    CategoryId= 2,
+                    UserId = 2,
+                    Score = 7,
+                },
             };
 
             context.Users.AddRange(users);
             context.Categories.AddRange(categories);
             context.Questions.AddRange(questions);
+            context.UserQuizzes.AddRange(userQuizzes);
             context.SaveChanges();
         }
     }

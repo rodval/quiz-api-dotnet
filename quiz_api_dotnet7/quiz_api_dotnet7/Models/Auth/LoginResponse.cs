@@ -1,11 +1,10 @@
 ﻿using NuGet.Common;
+using quiz_api_dotnet7.Models.Common;
 
 namespace quiz_api_dotnet7.Models.Auth
 {
-    public class LoginResponse
+    public class LoginResponse : BaseResponse
     {
-        public bool Success { get; set; }
-        public string? Message { get; set; }
         public string? Result { get; set; }
     }
 }

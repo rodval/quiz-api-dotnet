@@ -17,7 +17,6 @@ namespace quiz_api_dotnet7.Controllers
     {
         private readonly IQuestionService _service;
 
-
         public QuestionsController(IQuestionService service)
         {
             _service = service;

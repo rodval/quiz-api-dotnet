@@ -1,8 +1,8 @@
-﻿namespace quiz_api_dotnet7.Models.Auth
+﻿using quiz_api_dotnet7.Models.Common;
+
+namespace quiz_api_dotnet7.Models.Auth
 {
-    public class RegisterResponse
+    public class RegisterResponse : BaseResponse
     {
-        public bool Success { get; set; }
-        public string? Message { get; set; }
     }
 }
