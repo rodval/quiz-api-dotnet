@@ -10,6 +10,9 @@ namespace quiz_api_dotnet7.Models
         [Required]
         public string? Title { get; set; }
 
+        [Required]
+        public string? Image { get; set; }
+
         public ICollection<UserQuiz>? userQuizzes { get; set; }
     }
 }

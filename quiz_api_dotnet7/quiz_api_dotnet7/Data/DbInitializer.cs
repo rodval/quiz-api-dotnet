@@ -9,7 +9,6 @@ namespace quiz_api_dotnet7.Data
     {
         public static void Initialize(QuizContext context)
         {
-
             if (context.Users.Any()
                 && context.Categories.Any()
                 && context.Questions.Any())
@@ -47,34 +46,34 @@ namespace quiz_api_dotnet7.Data
                 {
                     Id = 1,
                     Title = "Propiedad Intelectual",
+                    Image = "/Img/lenguaje.png",
                 },
                 new Category
                 {
                     Id = 2,
                     Title = "Matematicas",
+                    Image = "/Img/matematicas.png",
                 },
 
                 new Category
                 {
                     Id = 3,
                     Title = "Ingles",
+                    Image = "/Img/idiomas.png",
                 },
 
                 new Category
                 {
                     Id = 4,
                     Title = "Ciencias",
+                    Image = "/Img/ciencias.png",
                 },
-
-
                 new Category
                 {
                     Id = 5,
-                    Title = "sociales",
+                    Title = "Sociales",
+                    Image = "/Img/sociales.png",
                 }
-
-
-
             };
 
             var questions = new Question[]
@@ -125,7 +124,7 @@ namespace quiz_api_dotnet7.Data
                             AnswerTitle = "Protegen los sistemas jurídicos nacionales, el sistema jurídico internacional y los sistemas jurídicos regionales.",
                             IsCorrect = false
                         },
-                        
+
                         new Answer
                         {
                             AnswerTitle = "Protegen y proveen la respuesta a la explotación, el abuso, la negligencia, las prácticas nocivas y la violencia contra los niños",
@@ -167,9 +166,9 @@ namespace quiz_api_dotnet7.Data
                     QuestionTitle = "¿Cuál es la duración del derecho de autor? ",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryId = 1,
-                    Answers = new Answer[] 
+                    Answers = new Answer[]
                     {
-                        new Answer 
+                        new Answer
                         {
                             AnswerTitle = "Toda la vida",
                             IsCorrect = false
@@ -630,13 +629,12 @@ namespace quiz_api_dotnet7.Data
 
                 },
                 new Question
-            {
+                {
                     QuestionTitle = "¿Cuántos departamentos tiene El Salvador?",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryId = 5,
                     Answers = new Answer[]
-              {
-
+                {
                  new Answer
                         {
                             AnswerTitle = "10",
@@ -662,7 +660,7 @@ namespace quiz_api_dotnet7.Data
 
                 },
                 new Question
-            {
+                {
                     QuestionTitle = " ¿En qué año El Salvador surge como país?",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryId = 5,
@@ -732,8 +730,7 @@ namespace quiz_api_dotnet7.Data
                     CategoryId = 5,
                     Answers = new Answer[]
                     {
-
-                    new Answer
+                        new Answer
                         {
                             AnswerTitle = "Francisco Menéndez",
                             IsCorrect = false
@@ -748,14 +745,12 @@ namespace quiz_api_dotnet7.Data
                             AnswerTitle = "Alfredo Cristiani",
                             IsCorrect = false
                         },
-                         new Answer
-                            {
+                        new Answer
+                        {
                             AnswerTitle = "Elías Antonio Saca",
                             IsCorrect = false
-                         }
-
+                        }
                     }
-
                   },
                   new Question
                   {
@@ -764,8 +759,7 @@ namespace quiz_api_dotnet7.Data
                     CategoryId = 5,
                     Answers = new Answer[]
                     {
-
-                    new Answer
+                        new Answer
                         {
                             AnswerTitle = "1981",
                             IsCorrect = true
@@ -780,14 +774,12 @@ namespace quiz_api_dotnet7.Data
                             AnswerTitle = "1950",
                             IsCorrect = false
                         },
-                         new Answer
-                            {
-                            AnswerTitle = "1955",
-                            IsCorrect = false
-                         }
-
+                        new Answer
+                        {
+                        AnswerTitle = "1955",
+                        IsCorrect = false
+                        }
                     }
-
                   },
             };
 
