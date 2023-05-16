@@ -25,14 +25,14 @@ namespace quiz_api_dotnet7.Services
         public UserQuizResponse? CheckAnsweredQuiz(UserQuiz userQuiz)
         {
             var user = _context.Users.FirstOrDefault(u => u.Id == userQuiz.UserId);
-            var category = _context.Categories.FirstOrDefault(c => c.Id == userQuiz.CategoryId);
+            var category = _context.Categories.FirstOrDefault(c => c.Id == userQuiz.CategoryQuizId);
 
             if (user is null || category is null)
             {
                 throw new InvalidOperationException(Errors.NotFound);
             }
 
-            var quiz = _context.UserQuizzes.Where(u => u.UserId == user.Id && u.CategoryId == category.Id);
+            var quiz = _context.UserQuizzes.Where(u => u.UserId == user.Id && u.CategoryQuizId == category.Id);
 
             if (quiz is not null)
             {
@@ -56,7 +56,7 @@ namespace quiz_api_dotnet7.Services
 
         public UserQuizResponse? Update(UserQuiz userQuiz)
         {
-            var quiz = _context.UserQuizzes.FirstOrDefault(u => u.UserId == userQuiz.UserId && u.CategoryId == userQuiz.CategoryId);
+            var quiz = _context.UserQuizzes.FirstOrDefault(u => u.UserId == userQuiz.UserId && u.CategoryQuizId == userQuiz.CategoryQuizId);
 
             if (quiz is null)
             {

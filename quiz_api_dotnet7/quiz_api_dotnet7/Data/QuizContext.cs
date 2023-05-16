@@ -16,9 +16,9 @@ namespace quiz_api_dotnet7.Data
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(QuizContext).Assembly);
 
             modelBuilder.Entity<UserQuiz>()
-                        .HasOne(e => e.Category)
-                        .WithMany(d => d.userQuizzes)
-                        .HasForeignKey(e => e.CategoryId)
+                        .HasOne(e => e.CategoryQuiz)
+                        .WithMany(d => d.UserQuizzes)
+                        .HasForeignKey(e => e.CategoryQuizId)
                         .IsRequired(true)
                         .OnDelete(DeleteBehavior.Cascade);
 
@@ -26,13 +26,14 @@ namespace quiz_api_dotnet7.Data
                 .HasIndex(c => c.UserId).IsUnique(false);
 
             modelBuilder.Entity<UserQuiz>()
-                .HasIndex(c => c.CategoryId).IsUnique(false);
+                .HasIndex(c => c.CategoryQuizId).IsUnique(false);
         }
 
         public DbSet<User> Users => Set<User>();
         public DbSet<Answer> Answer => Set<Answer>();
         public DbSet<Category> Categories => Set<Category>();
         public DbSet<Question> Questions => Set<Question>();
+        public DbSet<CategoryQuiz> CategoryQuizzes => Set<CategoryQuiz>();
         public DbSet<UserQuiz> UserQuizzes => Set<UserQuiz>();
     }
 }

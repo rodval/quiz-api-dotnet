@@ -13,25 +13,25 @@ namespace quiz_api_dotnet7.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class QuestionController : ControllerBase
     {
-        private readonly ICategoryService _service;
+        private readonly IQuestionService _service;
 
-        public CategoriesController(ICategoryService service)
+        public QuestionController(IQuestionService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Category>> GetAll()
+        public ActionResult<IEnumerable<Question>> GetQuizQuestion(int categoryQuizId, int numberOfQuestions)
         {
-            var categories = _service.GetAll();
+            var questions = _service.GetQuizQuestion(categoryQuizId, numberOfQuestions);
 
-            if (categories is not null)
+            if (questions is not null)
             {
-                return Ok(categories);
+                return Ok(questions);
             }
-            else 
+            else
             {
                 return NotFound();
             }
