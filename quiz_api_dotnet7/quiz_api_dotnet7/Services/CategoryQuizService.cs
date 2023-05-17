@@ -19,7 +19,19 @@ namespace quiz_api_dotnet7.Services
             return _context.CategoryQuizzes
                            .Include(cq => cq.Category)
                            .AsNoTracking()
-                           .Include(cq => cq.UserQuizzes.OrderByDescending(u => u.Score).Take(1))
+                           .Include(cq => cq.UserQuizzes.OrderByDescending(u => u.Score).Take(3))
+                           .AsNoTracking()
+                           .OrderBy(cq => cq.Category)
+                           .ThenBy(cq => cq.Level)
+                           .ToList();
+        }
+
+        public IEnumerable<CategoryQuiz> GetAllByUser(int userId)
+        {
+            return _context.CategoryQuizzes
+                           .Include(cq => cq.Category)
+                           .AsNoTracking()
+                           .Include(cq => cq.UserQuizzes.Where(u => u.UserId == userId).OrderByDescending(u => u.Score).Take(1))
                            .AsNoTracking()
                            .OrderBy(cq => cq.Category)
                            .ThenBy(cq => cq.Level)

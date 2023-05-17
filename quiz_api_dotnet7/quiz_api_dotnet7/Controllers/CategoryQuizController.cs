@@ -34,5 +34,20 @@ namespace quiz_api_dotnet7.Controllers
                 return NotFound();
             }
         }
+
+        [HttpGet("{userId}")]
+        public ActionResult<IEnumerable<CategoryQuiz>> GetAllByUser(int userId)
+        {
+            var categories = _service.GetAllByUser(userId);
+
+            if (categories is not null)
+            {
+                return Ok(categories);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }
