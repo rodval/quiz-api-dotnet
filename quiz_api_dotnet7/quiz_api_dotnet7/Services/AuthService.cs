@@ -91,7 +91,7 @@ namespace quiz_api_dotnet7.Services
                 claim,
                 expires: DateTime.Now.AddMinutes(60),
                 signingCredentials: singIn
-                );
+            );
 
             return new LoginResponse
             {

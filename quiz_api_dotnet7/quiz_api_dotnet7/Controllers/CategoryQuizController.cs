@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using quiz_api_dotnet7.Interfaces;
+using quiz_api_dotnet7.Models.Auth;
 using quiz_api_dotnet7.Models.Quiz.Categories;
 
 namespace quiz_api_dotnet7.Controllers
@@ -24,8 +27,14 @@ namespace quiz_api_dotnet7.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult<IEnumerable<CategoryQuiz>> GetAll()
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var tokenResponse = CustomJwt.validateToken(identity);
+
+            if (!tokenResponse.Success) return Ok(tokenResponse);
+
             var categories = _service.GetAll().Select(_mapper.Map<CategoryQuizDto>);
 
             if (categories is not null)
@@ -38,9 +47,17 @@ namespace quiz_api_dotnet7.Controllers
             }
         }
 
-        [HttpGet("{userId}")]
-        public ActionResult<IEnumerable<CategoryQuiz>> GetAllByUser(int userId)
+        [HttpGet("User")]
+        [Authorize]
+        public ActionResult<IEnumerable<CategoryQuiz>> GetAllByUser()
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var tokenResponse = CustomJwt.validateToken(identity);
+
+            if (!tokenResponse.Success) return Ok(tokenResponse);
+
+            int userId = Int32.Parse(tokenResponse.Result);
+
             var categories = _service.GetAllByUser(userId).Select(_mapper.Map<CategoryQuizDto>);
 
             if (categories is not null)

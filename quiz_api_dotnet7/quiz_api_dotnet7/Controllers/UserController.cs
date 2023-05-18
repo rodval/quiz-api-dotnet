@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using quiz_api_dotnet7.Interfaces;
@@ -25,8 +27,14 @@ namespace quiz_api_dotnet7.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult<IEnumerable<UserDto>> GetAll()
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var tokenResponse = CustomJwt.validateToken(identity);
+
+            if (!tokenResponse.Success) return Ok(tokenResponse);
+
             var users = _service.GetAll().Select(_mapper.Map<UserDto>);
 
             if (users is not null)
@@ -40,8 +48,14 @@ namespace quiz_api_dotnet7.Controllers
         }
 
         [HttpGet("{userId}")]
+        [Authorize]
         public ActionResult<UserDto> GetById(int userId)
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var tokenResponse = CustomJwt.validateToken(identity);
+
+            if (!tokenResponse.Success) return Ok(tokenResponse);
+
             var user = _mapper.Map<UserDto>(_service.GetById(userId));
 
             if (user is not null)
