@@ -863,20 +863,13 @@ namespace quiz_api_dotnet7.Data
                 new UserQuiz
                 {
                     Id = 2,
-                    CategoryQuizId= 2,
-                    UserId = 1,
-                    Score = 5,
-                },
-                new UserQuiz
-                {
-                    Id = 3,
                     CategoryQuizId= 1,
                     UserId = 2,
                     Score = 5,
                 },
                 new UserQuiz
                 {
-                    Id = 4,
+                    Id = 3,
                     CategoryQuizId= 2,
                     UserId = 2,
                     Score = 7,
