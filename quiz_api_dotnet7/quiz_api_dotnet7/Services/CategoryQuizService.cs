@@ -2,7 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using quiz_api_dotnet7.Data;
 using quiz_api_dotnet7.Interfaces;
-using quiz_api_dotnet7.Models.Quiz;
+using quiz_api_dotnet7.Models.Quiz.Categories;
 using System.Linq;
 
 namespace quiz_api_dotnet7.Services
@@ -22,6 +22,7 @@ namespace quiz_api_dotnet7.Services
                            .Include(cq => cq.Category)
                            .AsNoTracking()
                            .Include(cq => cq.UserQuizzes.OrderByDescending(u => u.Score).Take(3))
+                           .ThenInclude(uq => uq.User)
                            .AsNoTracking()
                            .OrderBy(cq => cq.Category)
                            .ThenBy(cq => cq.Level)

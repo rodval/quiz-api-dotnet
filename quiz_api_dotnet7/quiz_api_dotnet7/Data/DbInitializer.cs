@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using quiz_api_dotnet7.Models;
-using quiz_api_dotnet7.Models.Quiz;
+using quiz_api_dotnet7.Models.Quiz.Categories;
+using quiz_api_dotnet7.Models.Quiz.UsersQuizzes;
+using quiz_api_dotnet7.Models.Users;
 using quiz_api_dotnet7.Utilities;
 
 namespace quiz_api_dotnet7.Data

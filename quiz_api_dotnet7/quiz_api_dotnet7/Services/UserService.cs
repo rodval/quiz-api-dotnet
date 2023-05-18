@@ -2,8 +2,8 @@
 using Microsoft.IdentityModel.Tokens;
 using quiz_api_dotnet7.Data;
 using quiz_api_dotnet7.Interfaces;
-using quiz_api_dotnet7.Models;
 using quiz_api_dotnet7.Models.Auth;
+using quiz_api_dotnet7.Models.Users;
 using quiz_api_dotnet7.Utilities;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;

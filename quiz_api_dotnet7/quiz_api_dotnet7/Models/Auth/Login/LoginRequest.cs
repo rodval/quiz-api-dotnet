@@ -1,4 +1,4 @@
-﻿namespace quiz_api_dotnet7.Models.Auth
+﻿namespace quiz_api_dotnet7.Models.Auth.Login
 {
     public class LoginRequest
     {

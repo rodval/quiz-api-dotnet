@@ -1,6 +1,7 @@
-﻿using quiz_api_dotnet7.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using quiz_api_dotnet7.Data;
 using quiz_api_dotnet7.Interfaces;
-using quiz_api_dotnet7.Models.Quiz;
+using quiz_api_dotnet7.Models.Quiz.UsersQuizzes;
 using quiz_api_dotnet7.Utilities;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -18,11 +19,13 @@ namespace quiz_api_dotnet7.Services
         public IEnumerable<UserQuiz> GetAll()
         {
             return _context.UserQuizzes
+                           .Include(uq => uq.User)
+                           .AsNoTracking()
                            .OrderByDescending(u => u.Score)
                            .ToList();
         }
 
-        public UserQuizResponse? CheckAnsweredQuiz(UserQuiz userQuiz)
+        public UserQuizCommandResponse? CheckAnsweredQuiz(UserQuiz userQuiz)
         {
             var user = _context.Users.FirstOrDefault(u => u.Id == userQuiz.UserId);
             var category = _context.Categories.FirstOrDefault(c => c.Id == userQuiz.CategoryQuizId);
@@ -42,19 +45,19 @@ namespace quiz_api_dotnet7.Services
             return Update(userQuiz);
         }
 
-        public UserQuizResponse? Create(UserQuiz userQuiz) 
+        public UserQuizCommandResponse? Create(UserQuiz userQuiz) 
         {
             _context.UserQuizzes.Add(userQuiz);
             _context.SaveChanges();
 
-            return new UserQuizResponse
+            return new UserQuizCommandResponse
             {
                 Success = true,
                 Message = Success.SuccessUserQuiz,
             };
         }
 
-        public UserQuizResponse? Update(UserQuiz userQuiz)
+        public UserQuizCommandResponse? Update(UserQuiz userQuiz)
         {
             var quiz = _context.UserQuizzes.FirstOrDefault(u => u.UserId == userQuiz.UserId && u.CategoryQuizId == userQuiz.CategoryQuizId);
 
@@ -67,7 +70,7 @@ namespace quiz_api_dotnet7.Services
 
             _context.SaveChanges();
 
-            return new UserQuizResponse
+            return new UserQuizCommandResponse
             {
                 Success = true,
                 Message = Success.SuccessUserQuiz,
