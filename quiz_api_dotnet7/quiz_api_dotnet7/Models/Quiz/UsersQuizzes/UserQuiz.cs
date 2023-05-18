@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using quiz_api_dotnet7.Models.Quiz.Categories;
+using quiz_api_dotnet7.Models.Users;
 
-namespace quiz_api_dotnet7.Models.Quiz
+namespace quiz_api_dotnet7.Models.Quiz.UsersQuizzes
 {
     public class UserQuiz
     {
@@ -9,9 +11,9 @@ namespace quiz_api_dotnet7.Models.Quiz
         public double? Score { get; set; }
 
         public int UserId { get; set; }
-        public virtual User? User { get; set; }
+        public User? User { get; set; }
 
         public int CategoryQuizId { get; set; }
-        public virtual CategoryQuiz? CategoryQuiz { get; set; }
+        public CategoryQuiz? CategoryQuiz { get; set; }
     }
 }

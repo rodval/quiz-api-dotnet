@@ -1,4 +1,4 @@
-﻿using quiz_api_dotnet7.Models.Quiz;
+﻿using quiz_api_dotnet7.Models.Quiz.Categories;
 using quiz_api_dotnet7.Utilities;
 using System.ComponentModel.DataAnnotations;
 

@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using quiz_api_dotnet7.Models;
-using quiz_api_dotnet7.Models.Quiz;
+using quiz_api_dotnet7.Models.Quiz.Categories;
+using quiz_api_dotnet7.Models.Quiz.UsersQuizzes;
+using quiz_api_dotnet7.Models.Users;
 
 namespace quiz_api_dotnet7.Data
 {

@@ -1,4 +1,4 @@
-﻿using quiz_api_dotnet7.Models.Quiz;
+﻿using quiz_api_dotnet7.Models.Quiz.Categories;
 
 namespace quiz_api_dotnet7.Interfaces
 {
