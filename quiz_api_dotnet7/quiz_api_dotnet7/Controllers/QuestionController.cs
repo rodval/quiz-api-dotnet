@@ -16,6 +16,7 @@ namespace quiz_api_dotnet7.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Administrator,Customer")]
     public class QuestionController : ControllerBase
     {
         private readonly IQuestionService _service;
@@ -29,11 +30,6 @@ namespace quiz_api_dotnet7.Controllers
         [Authorize]
         public ActionResult<IEnumerable<Question>> GetQuizQuestion(int categoryQuizId, int numberOfQuestions)
         {
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
-            var tokenResponse = CustomJwt.validateToken(identity);
-
-            if (!tokenResponse.Success) return Ok(tokenResponse);
-
             var questions = _service.GetQuizQuestion(categoryQuizId, numberOfQuestions);
 
             if (questions is not null)

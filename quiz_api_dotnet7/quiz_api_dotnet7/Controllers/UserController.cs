@@ -15,27 +15,21 @@ namespace quiz_api_dotnet7.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Administrator")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _service;
-        private readonly IMapper _mapper;
 
-        public UserController(IUserService service, IMapper mapper)
+        public UserController(IUserService service)
         {
             _service = service;
-            _mapper = mapper;
         }
 
         [HttpGet]
         [Authorize]
-        public ActionResult<IEnumerable<UserDto>> GetAll()
+        public ActionResult<IEnumerable<User>> GetAll()
         {
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
-            var tokenResponse = CustomJwt.validateToken(identity);
-
-            if (!tokenResponse.Success) return Ok(tokenResponse);
-
-            var users = _service.GetAll().Select(_mapper.Map<UserDto>);
+            var users = _service.GetAll();
 
             if (users is not null)
             {
@@ -47,16 +41,11 @@ namespace quiz_api_dotnet7.Controllers
             }
         }
 
-        [HttpGet("{userId}")]
+        [HttpGet("CurrentUser")]
         [Authorize]
-        public ActionResult<UserDto> GetById(int userId)
+        public ActionResult<User> GetById(int userId)
         {
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
-            var tokenResponse = CustomJwt.validateToken(identity);
-
-            if (!tokenResponse.Success) return Ok(tokenResponse);
-
-            var user = _mapper.Map<UserDto>(_service.GetById(userId));
+            var user = _service.GetById(userId);
 
             if (user is not null)
             {

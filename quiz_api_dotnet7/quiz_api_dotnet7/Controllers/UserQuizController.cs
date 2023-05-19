@@ -15,6 +15,7 @@ namespace quiz_api_dotnet7.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Administrator,Customer")]
     public class UserQuizController : ControllerBase
     {
         private readonly IUserQuizService _service;
@@ -30,11 +31,6 @@ namespace quiz_api_dotnet7.Controllers
         [Authorize]
         public ActionResult<IEnumerable<UserQuiz>> GetAll()
         {
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
-            var tokenResponse = CustomJwt.validateToken(identity);
-
-            if (!tokenResponse.Success) return Ok(tokenResponse);
-
             var quizzes = _service.GetAll().Select(_mapper.Map<UserQuizDto>);
 
             if (quizzes is not null)
@@ -51,20 +47,15 @@ namespace quiz_api_dotnet7.Controllers
         [Authorize]
         public ActionResult<UserQuizCommandResponse> SaveUserQuiz([FromBody] UserQuiz userQuiz)
         {
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
-            var tokenResponse = CustomJwt.validateToken(identity);
+            var response = _service.CheckAnsweredQuiz(userQuiz);
 
-            if (!tokenResponse.Success) return Ok(tokenResponse);
-
-            var quiz = _service.CheckAnsweredQuiz(userQuiz);
-
-            if (quiz is not null)
+            if (response is not null && response.Success)
             {
-                return Ok(quiz);
+                return Ok(response);
             }
             else
             {
-                return NotFound();
+                return BadRequest(response);
             }
         }
     }

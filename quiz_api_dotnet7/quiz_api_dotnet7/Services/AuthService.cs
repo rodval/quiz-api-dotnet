@@ -30,11 +30,6 @@ namespace quiz_api_dotnet7.Services
 
         public LoginResponse Login(LoginRequest login)
         {
-            if (_context.Users == null)
-            {
-                throw new InvalidOperationException(Errors.NotFound);
-            }
-
             var user = _context.Users
                 .Where(u => u.Email == login.Email || u.UserName == login.Email)
                 .FirstOrDefault();

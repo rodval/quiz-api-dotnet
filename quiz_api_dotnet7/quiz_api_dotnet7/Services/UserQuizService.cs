@@ -25,14 +25,18 @@ namespace quiz_api_dotnet7.Services
                            .ToList();
         }
 
-        public UserQuizCommandResponse? CheckAnsweredQuiz(UserQuiz userQuiz)
+        public UserQuizCommandResponse CheckAnsweredQuiz(UserQuiz userQuiz)
         {
             var user = _context.Users.FirstOrDefault(u => u.Id == userQuiz.UserId);
             var category = _context.Categories.FirstOrDefault(c => c.Id == userQuiz.CategoryQuizId);
 
             if (user is null || category is null)
             {
-                throw new InvalidOperationException(Errors.NotFound);
+                return new UserQuizCommandResponse
+                {
+                    Success = false,
+                    Message = Errors.NotFound
+                };
             }
 
             var quiz = _context.UserQuizzes.Where(u => u.UserId == user.Id && u.CategoryQuizId == category.Id);
@@ -45,7 +49,7 @@ namespace quiz_api_dotnet7.Services
             return Update(userQuiz);
         }
 
-        public UserQuizCommandResponse? Create(UserQuiz userQuiz) 
+        public UserQuizCommandResponse Create(UserQuiz userQuiz) 
         {
             _context.UserQuizzes.Add(userQuiz);
             _context.SaveChanges();
@@ -53,17 +57,21 @@ namespace quiz_api_dotnet7.Services
             return new UserQuizCommandResponse
             {
                 Success = true,
-                Message = Success.SuccessUserQuiz,
+                Message = Success.SuccessProcess,
             };
         }
 
-        public UserQuizCommandResponse? Update(UserQuiz userQuiz)
+        public UserQuizCommandResponse Update(UserQuiz userQuiz)
         {
             var quiz = _context.UserQuizzes.FirstOrDefault(u => u.UserId == userQuiz.UserId && u.CategoryQuizId == userQuiz.CategoryQuizId);
 
             if (quiz is null)
             {
-                throw new InvalidOperationException(Errors.NotFound);
+                return new UserQuizCommandResponse
+                {
+                    Success = false,
+                    Message = Errors.NotFound
+                };
             }
 
             quiz.Score = (userQuiz.Score is not null) ? userQuiz.Score : quiz.Score;
@@ -73,7 +81,7 @@ namespace quiz_api_dotnet7.Services
             return new UserQuizCommandResponse
             {
                 Success = true,
-                Message = Success.SuccessUserQuiz,
+                Message = Success.SuccessProcess,
             };
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
+using Azure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ namespace quiz_api_dotnet7.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Administrator,Customer")]
     public class CategoryQuizController : ControllerBase
     {
         private readonly ICategoryQuizService _service;
@@ -27,14 +29,8 @@ namespace quiz_api_dotnet7.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public ActionResult<IEnumerable<CategoryQuiz>> GetAll()
         {
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
-            var tokenResponse = CustomJwt.validateToken(identity);
-
-            if (!tokenResponse.Success) return Ok(tokenResponse);
-
             var categories = _service.GetAll().Select(_mapper.Map<CategoryQuizDto>);
 
             if (categories is not null)
@@ -48,25 +44,26 @@ namespace quiz_api_dotnet7.Controllers
         }
 
         [HttpGet("User")]
-        [Authorize]
         public ActionResult<IEnumerable<CategoryQuiz>> GetAllByUser()
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
             var tokenResponse = CustomJwt.validateToken(identity);
 
-            if (!tokenResponse.Success) return Ok(tokenResponse);
+            if (!tokenResponse.Success) return BadRequest(tokenResponse);
 
             int userId = Int32.Parse(tokenResponse.Result);
 
-            var categories = _service.GetAllByUser(userId).Select(_mapper.Map<CategoryQuizDto>);
+            var response = _service.GetAllByUser(userId);
 
-            if (categories is not null)
+            if (response is not null)
             {
+                var categories = response.Select(_mapper.Map<CategoryQuizDto>);
+
                 return Ok(categories);
             }
             else
             {
-                return NotFound();
+                return BadRequest();
             }
         }
     }

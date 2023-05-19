@@ -16,14 +16,12 @@ namespace quiz_api_dotnet7.Services
 
         public IEnumerable<Question> GetQuizQuestion(int categoryQuiz, int numberOfQuestions)
         {
-            var questions = _context.Questions
-                                .Include(m => m.Answers)
-                                .AsNoTracking()
-                                .Where(m => m.CategoryQuizId == categoryQuiz)
-                                .ToList()
-                                .Take(numberOfQuestions);
-
-            return questions;
+            return _context.Questions
+                           .Include(m => m.Answers)
+                           .AsNoTracking()
+                           .Where(m => m.CategoryQuizId == categoryQuiz)
+                           .ToList()
+                           .Take(numberOfQuestions);
         }
     }
 }

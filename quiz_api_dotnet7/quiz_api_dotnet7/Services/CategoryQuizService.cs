@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using quiz_api_dotnet7.Data;
 using quiz_api_dotnet7.Interfaces;
 using quiz_api_dotnet7.Models.Quiz.Categories;
+using quiz_api_dotnet7.Utilities;
 using System.Linq;
 
 namespace quiz_api_dotnet7.Services
@@ -29,9 +30,16 @@ namespace quiz_api_dotnet7.Services
                            .ToList();
         }
 
-        public IEnumerable<CategoryQuiz> GetAllByUser(int userId)
+        public IEnumerable<CategoryQuiz>? GetAllByUser(int userId)
         {
+            var user = _context.Users.FirstOrDefault(u => u.Id == userId);
+
             var categories = _context.Categories.ToList();
+
+            if (user is null || categories is null) 
+            {
+                return null;
+            }
 
             var categoryQuiz = _context.CategoryQuizzes
                                        .Include(cq => cq.UserQuizzes.Where(u => u.UserId == userId).OrderByDescending(u => u.Score).Take(1))
