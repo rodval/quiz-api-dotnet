@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using quiz_api_dotnet7.Models.Quiz.Categories;
+using quiz_api_dotnet7.Models.Categories;
 using quiz_api_dotnet7.Models.Users;
 
-namespace quiz_api_dotnet7.Models.Quiz.UsersQuizzes
+namespace quiz_api_dotnet7.Models.UsersQuizzes
 {
     public class UserQuiz
     {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using quiz_api_dotnet7.Models.Quiz.Categories;
-using quiz_api_dotnet7.Models.Quiz.UsersQuizzes;
+using quiz_api_dotnet7.Models.Categories;
 using quiz_api_dotnet7.Models.Users;
+using quiz_api_dotnet7.Models.UsersQuizzes;
 
 namespace quiz_api_dotnet7.Mapper
 {

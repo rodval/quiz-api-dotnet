@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using quiz_api_dotnet7.Interfaces;
 using quiz_api_dotnet7.Models.Auth;
-using quiz_api_dotnet7.Models.Quiz.Categories;
+using quiz_api_dotnet7.Models.Categories;
 
 namespace quiz_api_dotnet7.Controllers
 {

@@ -1,6 +1,6 @@
-﻿using quiz_api_dotnet7.Models.Quiz.UsersQuizzes;
+﻿using quiz_api_dotnet7.Models.UsersQuizzes;
 
-namespace quiz_api_dotnet7.Models.Quiz.Categories
+namespace quiz_api_dotnet7.Models.Categories
 {
     public class CategoryQuizDto
     {
@@ -8,7 +8,7 @@ namespace quiz_api_dotnet7.Models.Quiz.Categories
 
         public int Level { get; set; }
 
-        public int CategoryId { get; set; }
+        public Category? Category { get; set; }
 
         public ICollection<UserQuizDto>? UserQuizzes { get; set; }
     }

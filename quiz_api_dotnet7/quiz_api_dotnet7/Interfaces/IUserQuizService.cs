@@ -1,5 +1,5 @@
 ﻿using quiz_api_dotnet7.Models;
-using quiz_api_dotnet7.Models.Quiz.UsersQuizzes;
+using quiz_api_dotnet7.Models.UsersQuizzes;
 
 namespace quiz_api_dotnet7.Interfaces
 {

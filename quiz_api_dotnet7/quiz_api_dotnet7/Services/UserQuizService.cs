@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using quiz_api_dotnet7.Data;
 using quiz_api_dotnet7.Interfaces;
-using quiz_api_dotnet7.Models.Quiz.UsersQuizzes;
+using quiz_api_dotnet7.Models.UsersQuizzes;
 using quiz_api_dotnet7.Utilities;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 

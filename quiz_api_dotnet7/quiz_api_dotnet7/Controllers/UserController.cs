@@ -4,11 +4,7 @@ using System.Security.Claims;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using quiz_api_dotnet7.Interfaces;
-using quiz_api_dotnet7.Models;
-using quiz_api_dotnet7.Models.Auth;
-using quiz_api_dotnet7.Models.Quiz.Categories;
 using quiz_api_dotnet7.Models.Users;
 
 namespace quiz_api_dotnet7.Controllers

@@ -1,7 +1,6 @@
-﻿using quiz_api_dotnet7.Models.Quiz;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace quiz_api_dotnet7.Models
+namespace quiz_api_dotnet7.Models.Categories
 {
     public class Category
     {
