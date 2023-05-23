@@ -45,9 +45,16 @@ namespace quiz_api_dotnet7.Controllers
 
         [HttpPost]
         [Authorize]
-        public ActionResult<UserQuizCommandResponse> SaveUserQuiz([FromBody] UserQuiz userQuiz)
+        public ActionResult<UserQuizCommandResponse> SaveUserQuiz([FromBody] UserQuizCommandRequest userQuiz)
         {
-            var response = _service.CheckAnsweredQuiz(userQuiz);
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var tokenResponse = CustomJwt.validateToken(identity);
+
+            if (!tokenResponse.Success) return BadRequest(tokenResponse);
+
+            int userId = Int32.Parse(tokenResponse.Result);
+
+            var response = _service.CheckAnsweredQuiz(userQuiz, userId);
 
             if (response is not null && response.Success)
             {

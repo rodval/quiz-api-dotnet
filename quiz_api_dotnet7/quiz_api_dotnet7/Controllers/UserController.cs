@@ -5,6 +5,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using quiz_api_dotnet7.Interfaces;
+using quiz_api_dotnet7.Models.Auth;
 using quiz_api_dotnet7.Models.Users;
 
 namespace quiz_api_dotnet7.Controllers
@@ -39,8 +40,15 @@ namespace quiz_api_dotnet7.Controllers
 
         [HttpGet("CurrentUser")]
         [Authorize]
-        public ActionResult<User> GetById(int userId)
+        public ActionResult<User> GetById()
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var tokenResponse = CustomJwt.validateToken(identity);
+
+            if (!tokenResponse.Success) return BadRequest(tokenResponse);
+
+            int userId = Int32.Parse(tokenResponse.Result);
+
             var user = _service.GetById(userId);
 
             if (user is not null)

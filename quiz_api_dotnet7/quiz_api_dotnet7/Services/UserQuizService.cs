@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using quiz_api_dotnet7.Data;
 using quiz_api_dotnet7.Interfaces;
 using quiz_api_dotnet7.Models.UsersQuizzes;
@@ -25,9 +26,9 @@ namespace quiz_api_dotnet7.Services
                            .ToList();
         }
 
-        public UserQuizCommandResponse CheckAnsweredQuiz(UserQuiz userQuiz)
+        public UserQuizCommandResponse CheckAnsweredQuiz(UserQuizCommandRequest userQuiz, int userId)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Id == userQuiz.UserId);
+            var user = _context.Users.FirstOrDefault(u => u.Id == userId);
             var category = _context.Categories.FirstOrDefault(c => c.Id == userQuiz.CategoryQuizId);
 
             if (user is null || category is null)
@@ -39,14 +40,21 @@ namespace quiz_api_dotnet7.Services
                 };
             }
 
-            var quiz = _context.UserQuizzes.Where(u => u.UserId == user.Id && u.CategoryQuizId == category.Id);
-
-            if (quiz is not null)
+            var newUserQuiz = new UserQuiz
             {
-                return Create(userQuiz);
+                Score = userQuiz.Score,
+                CategoryQuizId = userQuiz.CategoryQuizId,
+                UserId = userId
+            };
+
+            var quiz = _context.UserQuizzes.Where(u => u.UserId == user.Id && u.CategoryQuizId == category.Id).IsNullOrEmpty();
+
+            if (quiz)
+            {
+                return Create(newUserQuiz);
             }
 
-            return Update(userQuiz);
+            return Update(newUserQuiz);
         }
 
         public UserQuizCommandResponse Create(UserQuiz userQuiz) 

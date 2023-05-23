@@ -23,5 +23,11 @@ namespace quiz_api_dotnet7.Models.Users
 
         [Required]
         public UserRoleType Role { get; set; }
+
+        public string RefreshToken { get; set; } = string.Empty;
+
+        public DateTime TokenCreated { get; set; }
+
+        public DateTime TokenExpires { get; set; }
     }
 }
