@@ -7,8 +7,10 @@ using NuGet.Common;
 using NuGet.Protocol.Plugins;
 using quiz_api_dotnet7.Data;
 using quiz_api_dotnet7.Interfaces;
-using quiz_api_dotnet7.Models;
 using quiz_api_dotnet7.Models.Auth;
+using quiz_api_dotnet7.Models.Auth.Login;
+using quiz_api_dotnet7.Models.Auth.Register;
+using quiz_api_dotnet7.Models.Users;
 using quiz_api_dotnet7.Utilities;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -29,11 +31,6 @@ namespace quiz_api_dotnet7.Services
 
         public LoginResponse Login(LoginRequest login)
         {
-            if (_context.Users == null)
-            {
-                throw new InvalidOperationException(Errors.NotFound);
-            }
-
             var user = _context.Users
                 .Where(u => u.Email == login.Email || u.UserName == login.Email)
                 .FirstOrDefault();
@@ -90,7 +87,7 @@ namespace quiz_api_dotnet7.Services
                 claim,
                 expires: DateTime.Now.AddMinutes(60),
                 signingCredentials: singIn
-                );
+            );
 
             return new LoginResponse
             {

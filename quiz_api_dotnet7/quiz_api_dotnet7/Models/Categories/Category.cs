@@ -1,7 +1,6 @@
-﻿using quiz_api_dotnet7.Models.Quiz;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace quiz_api_dotnet7.Models
+namespace quiz_api_dotnet7.Models.Categories
 {
     public class Category
     {
@@ -12,7 +11,5 @@ namespace quiz_api_dotnet7.Models
 
         [Required]
         public string? Image { get; set; }
-
-        public ICollection<UserQuiz>? userQuizzes { get; set; }
     }
 }

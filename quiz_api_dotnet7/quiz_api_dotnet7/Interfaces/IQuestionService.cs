@@ -5,6 +5,6 @@ namespace quiz_api_dotnet7.Interfaces
 {
     public interface IQuestionService
     {
-        public IEnumerable<Question> GetQuizQuestion(int categoryId, int numberOfQuestions);
+        public IEnumerable<Question> GetQuizQuestion(int categoryQuiz, int numberOfQuestions);
     }
 }

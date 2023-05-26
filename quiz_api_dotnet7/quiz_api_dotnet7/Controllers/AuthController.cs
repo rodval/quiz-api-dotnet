@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using quiz_api_dotnet7.Interfaces;
-using quiz_api_dotnet7.Models;
-using quiz_api_dotnet7.Models.Auth;
+using quiz_api_dotnet7.Models.Auth.Login;
+using quiz_api_dotnet7.Models.Auth.Register;
 
 namespace quiz_api_dotnet7.Controllers
 {
@@ -21,11 +21,13 @@ namespace quiz_api_dotnet7.Controllers
         [Route("Login")]
         public ActionResult<LoginResponse> Login([FromBody]LoginRequest login)
         {
-            var user = _service.Login(login);
+            var response = _service.Login(login);
 
-            if (user is not null)
+            if (response is not null)
             {
-                return Ok(user);
+                if (!response.Success) return BadRequest(response);
+
+                return Ok(response);
             }
             else
             {
@@ -41,7 +43,9 @@ namespace quiz_api_dotnet7.Controllers
 
             if (response is not null)
             {
-                return Ok(response);
+                if (!response.Success) return BadRequest(user);
+
+                return Ok(user);
             }
             else
             {

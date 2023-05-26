@@ -1,6 +1,8 @@
-﻿using quiz_api_dotnet7.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using quiz_api_dotnet7.Data;
 using quiz_api_dotnet7.Interfaces;
-using quiz_api_dotnet7.Models.Quiz;
+using quiz_api_dotnet7.Models.UsersQuizzes;
 using quiz_api_dotnet7.Utilities;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -18,59 +20,76 @@ namespace quiz_api_dotnet7.Services
         public IEnumerable<UserQuiz> GetAll()
         {
             return _context.UserQuizzes
+                           .Include(uq => uq.User)
+                           .AsNoTracking()
                            .OrderByDescending(u => u.Score)
                            .ToList();
         }
 
-        public UserQuizResponse? CheckAnsweredQuiz(UserQuiz userQuiz)
+        public UserQuizCommandResponse CheckAnsweredQuiz(UserQuizCommandRequest userQuiz, int userId)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Id == userQuiz.UserId);
-            var category = _context.Categories.FirstOrDefault(c => c.Id == userQuiz.CategoryId);
+            var user = _context.Users.FirstOrDefault(u => u.Id == userId);
+            var category = _context.Categories.FirstOrDefault(c => c.Id == userQuiz.CategoryQuizId);
 
             if (user is null || category is null)
             {
-                throw new InvalidOperationException(Errors.NotFound);
+                return new UserQuizCommandResponse
+                {
+                    Success = false,
+                    Message = Errors.NotFound
+                };
             }
 
-            var quiz = _context.UserQuizzes.Where(u => u.UserId == user.Id && u.CategoryId == category.Id);
-
-            if (quiz is not null)
+            var newUserQuiz = new UserQuiz
             {
-                return Create(userQuiz);
+                Score = userQuiz.Score,
+                CategoryQuizId = userQuiz.CategoryQuizId,
+                UserId = userId
+            };
+
+            var quiz = _context.UserQuizzes.Where(u => u.UserId == user.Id && u.CategoryQuizId == category.Id).IsNullOrEmpty();
+
+            if (quiz)
+            {
+                return Create(newUserQuiz);
             }
 
-            return Update(userQuiz);
+            return Update(newUserQuiz);
         }
 
-        public UserQuizResponse? Create(UserQuiz userQuiz) 
+        public UserQuizCommandResponse Create(UserQuiz userQuiz) 
         {
             _context.UserQuizzes.Add(userQuiz);
             _context.SaveChanges();
 
-            return new UserQuizResponse
+            return new UserQuizCommandResponse
             {
                 Success = true,
-                Message = Success.SuccessUserQuiz,
+                Message = Success.SuccessProcess,
             };
         }
 
-        public UserQuizResponse? Update(UserQuiz userQuiz)
+        public UserQuizCommandResponse Update(UserQuiz userQuiz)
         {
-            var quiz = _context.UserQuizzes.FirstOrDefault(u => u.UserId == userQuiz.UserId && u.CategoryId == userQuiz.CategoryId);
+            var quiz = _context.UserQuizzes.FirstOrDefault(u => u.UserId == userQuiz.UserId && u.CategoryQuizId == userQuiz.CategoryQuizId);
 
             if (quiz is null)
             {
-                throw new InvalidOperationException(Errors.NotFound);
+                return new UserQuizCommandResponse
+                {
+                    Success = false,
+                    Message = Errors.NotFound
+                };
             }
 
             quiz.Score = (userQuiz.Score is not null) ? userQuiz.Score : quiz.Score;
 
             _context.SaveChanges();
 
-            return new UserQuizResponse
+            return new UserQuizCommandResponse
             {
                 Success = true,
-                Message = Success.SuccessUserQuiz,
+                Message = Success.SuccessProcess,
             };
         }
     }

@@ -1,4 +1,5 @@
-﻿using quiz_api_dotnet7.Utilities;
+﻿using quiz_api_dotnet7.Models.Categories;
+using quiz_api_dotnet7.Utilities;
 using System.ComponentModel.DataAnnotations;
 
 namespace quiz_api_dotnet7.Models
@@ -15,7 +16,9 @@ namespace quiz_api_dotnet7.Models
 
         public ICollection<Answer>? Answers { get; set; }
 
-        public int CategoryId { get; set; }
-        public Category? Categroy { get; set; }
+        public int Level { get; set; }
+
+        public int CategoryQuizId { get; set; }
+        public CategoryQuiz? CategoryQuiz { get; set; }
     }
 }

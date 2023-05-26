@@ -1,31 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using quiz_api_dotnet7.Data;
 using quiz_api_dotnet7.Interfaces;
 using quiz_api_dotnet7.Models;
+using quiz_api_dotnet7.Models.Auth;
 
 namespace quiz_api_dotnet7.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class QuestionsController : ControllerBase
+    [Authorize(Roles = "Administrator,Customer")]
+    public class QuestionController : ControllerBase
     {
         private readonly IQuestionService _service;
 
-        public QuestionsController(IQuestionService service)
+        public QuestionController(IQuestionService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Question>> GetQuizQuestion(int categoryId, int numberOfQuestions)
+        [Authorize]
+        public ActionResult<IEnumerable<Question>> GetQuizQuestion(int categoryQuizId, int numberOfQuestions)
         {
-            var questions = _service.GetQuizQuestion(categoryId, numberOfQuestions);
+            var questions = _service.GetQuizQuestion(categoryQuizId, numberOfQuestions);
 
             if (questions is not null)
             {

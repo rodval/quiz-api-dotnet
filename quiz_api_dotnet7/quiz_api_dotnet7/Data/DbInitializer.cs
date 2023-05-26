@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using quiz_api_dotnet7.Models;
-using quiz_api_dotnet7.Models.Quiz;
+using quiz_api_dotnet7.Models.Categories;
+using quiz_api_dotnet7.Models.Users;
+using quiz_api_dotnet7.Models.UsersQuizzes;
 using quiz_api_dotnet7.Utilities;
 
 namespace quiz_api_dotnet7.Data
@@ -76,13 +78,107 @@ namespace quiz_api_dotnet7.Data
                 }
             };
 
+            var categoryQuizzes = new CategoryQuiz[]
+            {
+                new CategoryQuiz
+                {
+                    Id = 1,
+                    Level = 1,
+                    CategoryId = 1,
+                },
+                new CategoryQuiz
+                {
+                    Id = 2,
+                    Level = 2,
+                    CategoryId = 1,
+                },
+                new CategoryQuiz
+                {
+                    Id = 3,
+                    Level = 3,
+                    CategoryId = 1,
+                },
+                new CategoryQuiz
+                {
+                    Id = 4,
+                    Level = 1,
+                    CategoryId = 2,
+                },
+                new CategoryQuiz
+                {
+                    Id = 5,
+                    Level = 2,
+                    CategoryId = 2,
+                },
+                new CategoryQuiz
+                {
+                    Id = 6,
+                    Level = 3,
+                    CategoryId = 2,
+                },
+                new CategoryQuiz
+                {
+                    Id = 7,
+                    Level = 1,
+                    CategoryId = 3,
+                },
+                new CategoryQuiz
+                {
+                    Id = 8,
+                    Level = 2,
+                    CategoryId = 3,
+                },
+                new CategoryQuiz
+                {
+                    Id = 9,
+                    Level = 3,
+                    CategoryId = 3,
+                },
+                new CategoryQuiz
+                {
+                    Id = 10,
+                    Level = 1,
+                    CategoryId = 4,
+                },
+                new CategoryQuiz
+                {
+                    Id = 11,
+                    Level = 2,
+                    CategoryId = 4,
+                },
+                new CategoryQuiz
+                {
+                    Id = 12,
+                    Level = 3,
+                    CategoryId = 4,
+                },
+                new CategoryQuiz
+                {
+                    Id = 13,
+                    Level = 1,
+                    CategoryId = 5,
+                },
+                new CategoryQuiz
+                {
+                    Id = 14,
+                    Level = 2,
+                    CategoryId = 5,
+                },
+                new CategoryQuiz
+                {
+                    Id = 15,
+                    Level = 3,
+                    CategoryId = 5,
+                },
+            };
+
             var questions = new Question[]
             {
                 new Question
                 {
                     QuestionTitle = "¿Qué es el derecho de autor?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 1,
+                    CategoryQuizId = 1,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -111,7 +207,7 @@ namespace quiz_api_dotnet7.Data
                 {
                     QuestionTitle = "¿Qué obras están protegidas por el derecho de autor? ",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 1,
+                    CategoryQuizId = 1,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -141,7 +237,7 @@ namespace quiz_api_dotnet7.Data
                 {
                     QuestionTitle = "¿Cómo se adquiere el derecho de autor? ",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 1,
+                    CategoryQuizId = 1,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -165,7 +261,7 @@ namespace quiz_api_dotnet7.Data
                 {
                     QuestionTitle = "¿Cuál es la duración del derecho de autor? ",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 1,
+                    CategoryQuizId = 1,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -194,7 +290,7 @@ namespace quiz_api_dotnet7.Data
                 {
                     QuestionTitle = "¿Qué derechos tiene el titular del derecho de autor?  ",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 1,
+                    CategoryQuizId = 1,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -223,7 +319,7 @@ namespace quiz_api_dotnet7.Data
                 {
                     QuestionTitle = "¿Cuánto es 2+2?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 2,
+                    CategoryQuizId = 4,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -249,11 +345,11 @@ namespace quiz_api_dotnet7.Data
                     }
 
                 },
-                 new Question
-                 {
+                new Question
+                {
                     QuestionTitle = "¿Cuánto es 500x72?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 2,
+                    CategoryQuizId = 4,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -277,13 +373,12 @@ namespace quiz_api_dotnet7.Data
                             IsCorrect = false
                         }
                     }
-
-                 },
-                 new Question
-                 {
+                },
+                new Question
+                {
                     QuestionTitle = "¿Cuánto es la raíz cuadrada de 120?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 2,
+                    CategoryQuizId = 4,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -307,13 +402,12 @@ namespace quiz_api_dotnet7.Data
                             IsCorrect = false
                         }
                     }
-
-                 },
-                  new Question
-                  {
+                },
+                new Question
+                {
                     QuestionTitle = "¿Cuánto es 2000/475?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 2,
+                    CategoryQuizId = 4,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -337,13 +431,12 @@ namespace quiz_api_dotnet7.Data
                             IsCorrect = false
                         }
                     }
-
-                  },
-                   new Question
-                   {
+                },
+                new Question
+                {
                     QuestionTitle = "¿Cuánto es 8+8?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 2,
+                    CategoryQuizId = 4,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -367,12 +460,12 @@ namespace quiz_api_dotnet7.Data
                             IsCorrect = false
                         }
                     }
-                   },
-                    new Question
-                    {
+                },
+                new Question
+                {
                     QuestionTitle = "X way did Jimmi Hendrix play his guitar, left-handed or right-handed?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 3,
+                    CategoryQuizId = 7,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -391,13 +484,12 @@ namespace quiz_api_dotnet7.Data
                             IsCorrect = false
                         },
                     }
-
-                    },
-                     new Question
-                     {
+                },
+                new Question
+                {
                     QuestionTitle = "How many Oscars X Joan Crawford win? ",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 3,
+                    CategoryQuizId = 7,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -418,11 +510,11 @@ namespace quiz_api_dotnet7.Data
                         },
                     }
                 },
-                     new Question
-                     {
+                new Question
+                {
                     QuestionTitle = " X area of Paris was the setting of the film ‘Can - Can' ?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 3,
+                    CategoryQuizId = 7,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -443,11 +535,11 @@ namespace quiz_api_dotnet7.Data
                         },
                     }
                 },
-                 new Question
-                     {
+                new Question
+                {
                     QuestionTitle = " What is a Gametophobic bachelor afraid X",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 3,
+                    CategoryQuizId = 7,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -469,10 +561,10 @@ namespace quiz_api_dotnet7.Data
                     }
                 },
                 new Question
-                     {
+                {
                     QuestionTitle = "Chives are the cousin of X Vegetables?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 3,
+                    CategoryQuizId = 7,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -494,14 +586,13 @@ namespace quiz_api_dotnet7.Data
                     }
                 },
                 new Question
-            {
+                {
                     QuestionTitle = "¿Cómo se denomina la parte del cuerpo donde se juntan dos o más huesos?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 4,
+                    CategoryQuizId = 10,
                     Answers = new Answer[]
-              {
-
-                 new Answer
+                    {
+                        new Answer
                         {
                             AnswerTitle = "Articulaciones",
                             IsCorrect = true
@@ -516,19 +607,16 @@ namespace quiz_api_dotnet7.Data
                             AnswerTitle = "Cartílagos.",
                             IsCorrect = false
                         }
-
-               }
-
-             },
+                    }
+                },
                 new Question
-            {
+                {
                     QuestionTitle = "¿Cómo se clasifican los animales según tengan columna vertebral o no?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 4,
+                    CategoryQuizId = 10,
                     Answers = new Answer[]
-              {
-
-                 new Answer
+                    {
+                        new Answer 
                         {
                             AnswerTitle = "Animales vertebrados y animales invertebrados.",
                             IsCorrect = true
@@ -543,19 +631,16 @@ namespace quiz_api_dotnet7.Data
                             AnswerTitle = "Animales carnívoros, herbívoros u omnívoros.",
                             IsCorrect = false
                         }
-
-               }
-
-             },
+                    }
+                },
                 new Question
-            {
+                {
                     QuestionTitle = " ¿Cómo se llama el proceso por el cual las plantas elaboran su alimento?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 4,
+                    CategoryQuizId = 10,
                     Answers = new Answer[]
-              {
-
-                 new Answer
+                    {
+                        new Answer
                         {
                             AnswerTitle = " Fotosíntesis.",
                             IsCorrect = true
@@ -571,18 +656,16 @@ namespace quiz_api_dotnet7.Data
                             IsCorrect = false
                         }
 
-               }
-
-             },
+                    }
+                },
                 new Question
-            {
+                {
                     QuestionTitle = "¿Para qué sirve la raíz de lasplantas?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 4,
+                    CategoryQuizId = 10,
                     Answers = new Answer[]
-              {
-
-                 new Answer
+                    {
+                        new Answer
                         {
                             AnswerTitle = "Para absorber agua de la tierra.",
                             IsCorrect = true
@@ -597,19 +680,16 @@ namespace quiz_api_dotnet7.Data
                             AnswerTitle = "Para poder reproducirse.",
                             IsCorrect = false
                         }
-
-               }
-
-             },
+                    }
+                },
                 new Question
-            {
+                {
                     QuestionTitle = " ¿Qué absorbe la planta a través de sus hojas?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 4,
+                    CategoryQuizId = 10,
                     Answers = new Answer[]
-              {
-
-                 new Answer
+                    {
+                        new Answer
                         {
                             AnswerTitle = "Oxígeno.",
                             IsCorrect = true
@@ -624,18 +704,16 @@ namespace quiz_api_dotnet7.Data
                             AnswerTitle = "Gases.",
                             IsCorrect = false
                         }
-
-                }
-
+                    }
                 },
                 new Question
                 {
                     QuestionTitle = "¿Cuántos departamentos tiene El Salvador?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 5,
+                    CategoryQuizId = 13,
                     Answers = new Answer[]
-                {
-                 new Answer
+                    {
+                        new Answer
                         {
                             AnswerTitle = "10",
                             IsCorrect = false
@@ -655,19 +733,16 @@ namespace quiz_api_dotnet7.Data
                             AnswerTitle = "14",
                             IsCorrect = true
                         }
-
-                }
-
+                    }
                 },
                 new Question
                 {
                     QuestionTitle = " ¿En qué año El Salvador surge como país?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 5,
+                    CategoryQuizId = 13,
                     Answers = new Answer[]
-                {
-
-                    new Answer
+                    {
+                        new Answer
                         {
                             AnswerTitle = "1941",
                             IsCorrect = true
@@ -682,24 +757,21 @@ namespace quiz_api_dotnet7.Data
                             AnswerTitle = "1930",
                             IsCorrect = false
                         },
-                         new Answer
+                        new Answer
                         {
                             AnswerTitle = "1960",
                             IsCorrect = false
                         }
-
-                }
-
+                    }
                 },
-                 new Question
-                 {
+                new Question    
+                {
                     QuestionTitle = "¿Qué cultivo impulso al general Gerardo barrios?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 5,
+                    CategoryQuizId = 13,
                     Answers = new Answer[]
                     {
-
-                    new Answer
+                        new Answer
                         {
                             AnswerTitle = "Caña de azúcar",
                             IsCorrect = false
@@ -714,20 +786,18 @@ namespace quiz_api_dotnet7.Data
                             AnswerTitle = "Algodón",
                             IsCorrect = false
                         },
-                         new Answer
-                            {
+                        new Answer
+                        {
                             AnswerTitle = "El Maiz",
                             IsCorrect = false
-                         }
-
+                        }
                     }
-
                 },
-                  new Question
-                  {
+                new Question
+                {
                     QuestionTitle = "¿Qué cultivo impulso al general Gerardo barrios?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 5,
+                    CategoryQuizId = 13,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -751,12 +821,12 @@ namespace quiz_api_dotnet7.Data
                             IsCorrect = false
                         }
                     }
-                  },
-                  new Question
-                  {
+                },
+                new Question
+                {
                     QuestionTitle = "¿En qué año inicio la guerra civil en El Salvador ?",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryId = 5,
+                    CategoryQuizId = 13,
                     Answers = new Answer[]
                     {
                         new Answer
@@ -765,7 +835,7 @@ namespace quiz_api_dotnet7.Data
                             IsCorrect = true
                         },
                         new Answer
-                            {
+                        {
                             AnswerTitle = "1999",
                             IsCorrect = false
                         },
@@ -776,11 +846,11 @@ namespace quiz_api_dotnet7.Data
                         },
                         new Answer
                         {
-                        AnswerTitle = "1955",
-                        IsCorrect = false
+                            AnswerTitle = "1955",
+                            IsCorrect = false
                         }
                     }
-                  },
+                },
             };
 
             var userQuizzes = new UserQuiz[]
@@ -788,35 +858,29 @@ namespace quiz_api_dotnet7.Data
                 new UserQuiz
                 {
                     Id = 1,
-                    CategoryId= 1,
+                    CategoryQuizId= 1,
                     UserId = 1,
                     Score = 10,
                 },
                 new UserQuiz
                 {
                     Id = 2,
-                    CategoryId= 2,
-                    UserId = 1,
-                    Score = 5,
-                },
-                new UserQuiz
-                {
-                    Id = 3,
-                    CategoryId= 1,
+                    CategoryQuizId= 1,
                     UserId = 2,
                     Score = 5,
                 },
                 new UserQuiz
                 {
-                    Id = 4,
-                    CategoryId= 2,
+                    Id = 3,
+                    CategoryQuizId= 2,
                     UserId = 2,
                     Score = 7,
                 },
             };
 
             context.Users.AddRange(users);
-            context.Categories.AddRange(categories);
+            context.Categories.AddRange(categories);            
+            context.CategoryQuizzes.AddRange(categoryQuizzes);
             context.Questions.AddRange(questions);
             context.UserQuizzes.AddRange(userQuizzes);
             context.SaveChanges();
