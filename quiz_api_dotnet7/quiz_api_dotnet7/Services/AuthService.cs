@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using NuGet.Common;
+using NuGet.Protocol.Plugins;
 using quiz_api_dotnet7.Data;
 using quiz_api_dotnet7.Interfaces;
 using quiz_api_dotnet7.Models;
@@ -123,13 +124,15 @@ namespace quiz_api_dotnet7.Services
                 };
             }
 
+            var hasher = new PasswordHasher<User>();
+
             var user = new User
             {
                 FirstName = register.FirstName,
                 LastName = register.LastName,
                 UserName = register.UserName,
                 Email = register.Email,
-                Password = register.Password,
+                Password = hasher.HashPassword(null, register.Password),
                 Role = UserRoleType.Customer
             };
 
