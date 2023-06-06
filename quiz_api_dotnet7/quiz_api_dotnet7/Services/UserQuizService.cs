@@ -29,9 +29,9 @@ namespace quiz_api_dotnet7.Services
         public UserQuizCommandResponse CheckAnsweredQuiz(UserQuizCommandRequest userQuiz, int userId)
         {
             var user = _context.Users.FirstOrDefault(u => u.Id == userId);
-            var category = _context.Categories.FirstOrDefault(c => c.Id == userQuiz.CategoryQuizId);
+            var categoryQuiz = _context.CategoryQuizzes.FirstOrDefault(c => c.Id == userQuiz.CategoryQuizId);
 
-            if (user is null || category is null)
+            if (user is null || categoryQuiz is null)
             {
                 return new UserQuizCommandResponse
                 {
@@ -40,21 +40,21 @@ namespace quiz_api_dotnet7.Services
                 };
             }
 
-            var newUserQuiz = new UserQuiz
+            var quizResponse = new UserQuiz
             {
                 Score = userQuiz.Score,
                 CategoryQuizId = userQuiz.CategoryQuizId,
                 UserId = userId
             };
 
-            var quiz = _context.UserQuizzes.Where(u => u.UserId == user.Id && u.CategoryQuizId == category.Id).IsNullOrEmpty();
+            var hasQuiz = _context.UserQuizzes.Where(u => u.UserId == user.Id && u.CategoryQuizId == userQuiz.CategoryQuizId).IsNullOrEmpty();
 
-            if (quiz)
+            if (!hasQuiz)
             {
-                return Create(newUserQuiz);
+                return Update(quizResponse);
             }
 
-            return Update(newUserQuiz);
+            return Create(quizResponse);
         }
 
         public UserQuizCommandResponse Create(UserQuiz userQuiz) 
