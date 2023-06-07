@@ -8,8 +8,8 @@ using NuGet.Protocol.Plugins;
 using quiz_api_dotnet7.Data;
 using quiz_api_dotnet7.Interfaces;
 using quiz_api_dotnet7.Models.Auth;
-using quiz_api_dotnet7.Models.Auth.Login;
-using quiz_api_dotnet7.Models.Auth.Register;
+using quiz_api_dotnet7.Models.Auth.SignIn;
+using quiz_api_dotnet7.Models.Auth.SignUp;
 using quiz_api_dotnet7.Models.Users;
 using quiz_api_dotnet7.Utilities;
 using System.IdentityModel.Tokens.Jwt;
@@ -29,15 +29,15 @@ namespace quiz_api_dotnet7.Services
             _configuration = configuration;
         }
 
-        public LoginResponse Login(LoginRequest login)
+        public SignInResponse SignIn(SignInRequest signIn)
         {
             var user = _context.Users
-                .Where(u => u.Email == login.Email || u.UserName == login.Email)
+                .Where(u => u.Email == signIn.User || u.UserName == signIn.User)
                 .FirstOrDefault();
 
-            if (user is null || user.Password is null || login.Password is null)
+            if (user is null || user.Password is null || signIn.Password is null)
             {
-                return new LoginResponse
+                return new SignInResponse
                 {
                     Success = false,
                     Message = Errors.BadLogin,
@@ -45,11 +45,11 @@ namespace quiz_api_dotnet7.Services
                 };
             }
 
-            var hasherPassword = new PasswordHasher<User>().VerifyHashedPassword(null, user.Password, login.Password);
+            var hasherPassword = new PasswordHasher<User>().VerifyHashedPassword(null, user.Password, signIn.Password);
 
             if (hasherPassword == PasswordVerificationResult.Failed)
             {
-                return new LoginResponse
+                return new SignInResponse
                 {
                     Success = false,
                     Message = Errors.BadLogin,
@@ -61,7 +61,7 @@ namespace quiz_api_dotnet7.Services
 
             if (jwt == null)
             {
-                return new LoginResponse
+                return new SignInResponse
                 {
                     Success = false,
                     Message = Errors.BadRequest,
@@ -89,7 +89,7 @@ namespace quiz_api_dotnet7.Services
                 signingCredentials: singIn
             );
 
-            return new LoginResponse
+            return new SignInResponse
             {
                 Success = true,
                 Message = Success.SuccessLogin,
@@ -97,27 +97,16 @@ namespace quiz_api_dotnet7.Services
             };
         }
 
-        public RegisterResponse? Register(RegisterRequest register)
+        public SignUpResponse SignUp(SignUpRequest register)
         {
             var IsUserNameExist = _context.Users.Any(u => u.UserName == register.UserName);
 
             if (IsUserNameExist) 
             {
-                return new RegisterResponse
+                return new SignUpResponse
                 {
                     Success = false,
                     Message = Errors.IsUserNameExist
-                };
-            }
-
-            var IsEmailExist = _context.Users.Any(u => u.Email == register.Email);
-
-            if (IsEmailExist)
-            {
-                return new RegisterResponse
-                {
-                    Success = false,
-                    Message = Errors.IsEmailExist
                 };
             }
 
@@ -136,7 +125,7 @@ namespace quiz_api_dotnet7.Services
             _context.Users.Add(user);
             _context.SaveChanges();
 
-            return new RegisterResponse
+            return new SignUpResponse
             {
                 Success = true,
                 Message = Success.SuccessRegister,

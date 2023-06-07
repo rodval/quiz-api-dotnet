@@ -47,7 +47,7 @@ namespace quiz_api_dotnet7.Controllers
         public ActionResult<IEnumerable<CategoryQuiz>> GetAllByUser()
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
-            var tokenResponse = CustomJwt.validateToken(identity);
+            var tokenResponse = CustomJwt.ValidateToken(identity);
 
             if (!tokenResponse.Success) return BadRequest(tokenResponse);
 
