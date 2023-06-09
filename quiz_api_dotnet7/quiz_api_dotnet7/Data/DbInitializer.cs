@@ -4,6 +4,8 @@ using quiz_api_dotnet7.Models.Categories;
 using quiz_api_dotnet7.Models.Users;
 using quiz_api_dotnet7.Models.UsersQuizzes;
 using quiz_api_dotnet7.Utilities;
+using System.Drawing;
+using System.Xml.Linq;
 
 namespace quiz_api_dotnet7.Data
 {
@@ -44,38 +46,39 @@ namespace quiz_api_dotnet7.Data
 
             var categories = new Category[]
             {
+
                 new Category
                 {
                     Id = 1,
-                    Title = "Propiedad Intelectual",
-                    Image = "/Img/lenguaje.png",
+                    Title = "Peliculas",
+                    Image = "/Img/matematicas.png",
                 },
                 new Category
                 {
                     Id = 2,
-                    Title = "Matematicas",
+                    Title = "Series",
                     Image = "/Img/matematicas.png",
                 },
-
                 new Category
                 {
                     Id = 3,
-                    Title = "Ingles",
-                    Image = "/Img/idiomas.png",
+                    Title = "Propiedad Intelectual",
+                    Image = "/Img/lenguaje.png",
                 },
 
                 new Category
                 {
                     Id = 4,
-                    Title = "Ciencias",
-                    Image = "/Img/ciencias.png",
+                    Title = "Musica",
+                    Image = "/Img/matematicas.png",
                 },
                 new Category
                 {
                     Id = 5,
-                    Title = "Sociales",
-                    Image = "/Img/sociales.png",
-                }
+                    Title = "Juegos",
+                    Image = "/Img/matematicas.png",
+                },
+
             };
 
             var categoryQuizzes = new CategoryQuiz[]
@@ -134,723 +137,1276 @@ namespace quiz_api_dotnet7.Data
                     Level = 3,
                     CategoryId = 3,
                 },
-                new CategoryQuiz
-                {
-                    Id = 10,
-                    Level = 1,
-                    CategoryId = 4,
-                },
-                new CategoryQuiz
-                {
-                    Id = 11,
-                    Level = 2,
-                    CategoryId = 4,
-                },
-                new CategoryQuiz
-                {
-                    Id = 12,
-                    Level = 3,
-                    CategoryId = 4,
-                },
-                new CategoryQuiz
-                {
-                    Id = 13,
-                    Level = 1,
-                    CategoryId = 5,
-                },
-                new CategoryQuiz
-                {
-                    Id = 14,
-                    Level = 2,
-                    CategoryId = 5,
-                },
-                new CategoryQuiz
-                {
-                    Id = 15,
-                    Level = 3,
-                    CategoryId = 5,
-                },
+
             };
 
             var questions = new Question[]
             {
+                //peliculas
                 new Question
                 {
-                    QuestionTitle = "¿Qué es el derecho de autor?",
+                    QuestionTitle = "La película \"Titanic\" fue dirigida por James Cameron.",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 1,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "Es un conjunto de normas jurídicas que protegen las creaciones originales.",
+                            AnswerTitle = "Verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = "son los derechos que tenemos básicamente por existir como seres humanos",
+                            AnswerTitle = "Falso",
                             IsCorrect = false
                         },
-                         new Answer
-                        {
-                            AnswerTitle = "Es rama del derecho que, en general, regula las relaciones civiles o privadas de las personas.",
-                            IsCorrect = false
-                        },
-                          new Answer
-                        {
-                            AnswerTitle = "son el derecho fundamental humano por el que toda persona tiene el derecho al trabajo, a la libre elección de este.",
-                            IsCorrect = false
-                        }
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿Qué obras están protegidas por el derecho de autor? ",
+                    QuestionTitle = "¿Cuál de las siguientes películas fue dirigida por Quentin Tarantino?",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 1,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "Protegen a todas las obras originales de carácter literario, artístico o científico.",
+                            AnswerTitle = "\"The Shawshank Redemption",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "\"Pulp Fiction",
                             IsCorrect = true
                         },
-                        new Answer
-                        {
-                            AnswerTitle = "Protegen los sistemas jurídicos nacionales, el sistema jurídico internacional y los sistemas jurídicos regionales.",
-                            IsCorrect = false
-                        },
-
-                        new Answer
-                        {
-                            AnswerTitle = "Protegen y proveen la respuesta a la explotación, el abuso, la negligencia, las prácticas nocivas y la violencia contra los niños",
-                            IsCorrect = false
-                        },
-                         new Answer
-                        {
-                            AnswerTitle = "Protegen la conservación y el uso sostenible de la biodiversidad son elementos clave para avanzar hacia un modelo de economía verde y un desarrollo sostenible",
-                            IsCorrect = false
-                        }
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿Cómo se adquiere el derecho de autor? ",
+                    QuestionTitle = "\"El Padrino\" es una película dirigida por Steven Spielberg.",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 1,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "Se adquiere automáticamente al crear una obra original.",
-                            IsCorrect = true
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
                         },
                         new Answer
                         {
-                            AnswerTitle = "Se adquiere por nacimiento, sino mediante un proceso de aprendizaje, y su diferencia específica consiste en que o es práctica.",
-                            IsCorrect = false
+                            AnswerTitle = "falso",
+                            IsCorrect = true
                         },
-                          new Answer
-                        {
-                            AnswerTitle = "mediante una pluralidad de procesos cognitivos: percepción, memoria, experiencia, razonamiento.",
-                            IsCorrect = false
-                        }
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿Cuál es la duración del derecho de autor? ",
+                    QuestionTitle = "\"Jurassic Park\" fue lanzada en el año 1993.",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 1,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "Toda la vida",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "Varía según el país y el tipo de obra.",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = "1 año",
+                            AnswerTitle = "falso",
                             IsCorrect = false
                         },
-                        new Answer
-                        {
-                            AnswerTitle = "1 lustro",
-                            IsCorrect = false
-                        }
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿Qué derechos tiene el titular del derecho de autor?  ",
+                    QuestionTitle = "\"Harry Potter y la piedra filosofal\" es la primera película de la serie de Harry Potter.",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 1,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "Los derechos negociar con el propietario la renta del alquiler y la duración del contrato.",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "Los derechos exclusivos de explotación y disposición de su obra.",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = "libertad para adoptar, profesar, divulgar o seguir, inclusive de cambiar, la creencia religiosa o filosófica que más le agrade o desee.",
+                            AnswerTitle = "falso",
                             IsCorrect = false
                         },
-                        new Answer
-                        {
-                            AnswerTitle = "derecho a que el Estado proteja los datos que se refieren a su vida privada y datos personales cuando se encuentren en posesión de particulares o de la autoridad.",
-                            IsCorrect = false
-                        }
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿Cuánto es 2+2?",
+                    QuestionTitle = "\"El Rey León\" es una película de animación de Disney.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 1,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "\"El Señor de los Anillos: El retorno del rey\" ganó el Óscar a la Mejor Película. ",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 1,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+                        },
+                    }
+                },
+                //lvl2
+                new Question
+                {
+                    QuestionTitle = "\"Titanic\" es una película basada en hechos reales.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 2,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "\"Avatar\" fue dirigida por James Cameron.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 2,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "\"Matrix\" es una película de ciencia ficción protagonizada por Keanu Reeves. .",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 2,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "\"La La Land\" es una película de acción y aventura.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 2,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "\"El resplandor\" fue dirigida por Alfred Hitchcock.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 2,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "E.T., el extraterrestre\" es una película de Spielberg que se estrenó en 1982",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 2,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "La La Land\" ganó el Óscar a la Mejor Película en 2017.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 2,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+                        },
+                    }
+                },
+                //lvl 3
+                new Question
+                {
+                    QuestionTitle = "Los Vengadores\" es una película de Marvel que reúne a varios superhéroes. ",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 3,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "\"El caballero de la noche asciende\" es la tercera película de la trilogía de Batman dirigida por Christopher Nolan.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 3,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "\"Toy Story\" es una película de animación de Pixar.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 3,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "\"Titanic\" es la película más taquillera de todos los tiempos.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 3,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "El actor Tom Hanks ha ganado un Premio de la Academia en dos ocasiones.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 3,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "La película \"El Padrino\" fue dirigida por Martin Scorsese.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 3,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "El personaje de Darth Vader aparece en todas las películas de la saga \"Star Wars\".",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 3,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+
+                        },
+                    }
+                },
+                //Series
+                new Question
+                {
+                    QuestionTitle = "\"Attack on Titan\" es un anime basado en un manga escrito por Hajime Isayama. ",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 4,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "4",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = "5",
+                            AnswerTitle = "falso",
                             IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "9",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "10",
-                            IsCorrect = false
-                        }
-                    }
 
+                        },
+                    }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿Cuánto es 500x72?",
+                    QuestionTitle = "En el anime \"One Piece\", el protagonista es Monkey D. Luffy, un pirata en busca del tesoro más grande del mundo. ",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 4,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "36000",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = "6300",
+                            AnswerTitle = "falso",
                             IsCorrect = false
+
                         },
-                        new Answer
-                        {
-                            AnswerTitle = "74000",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "63000",
-                            IsCorrect = false
-                        }
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿Cuánto es la raíz cuadrada de 120?",
+                    QuestionTitle = "La serie \"Friends\" se desarrolla en la ciudad de Nueva York y sigue las vidas de un grupo de amigos. ",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 4,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "20.35",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "12.80",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "10.95",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = "8.9",
+                            AnswerTitle = "falso",
                             IsCorrect = false
-                        }
+
+                        },
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿Cuánto es 2000/475?",
+                    QuestionTitle = "\"Naruto\" es un anime que sigue las aventuras de un joven ninja llamado Sasuke Uchiha.",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 4,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "4.21",
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
                             IsCorrect = true
+
                         },
-                        new Answer
-                        {
-                            AnswerTitle = "4.25",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "7.5",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "7.8",
-                            IsCorrect = false
-                        }
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿Cuánto es 8+8?",
+                    QuestionTitle = "En el anime \"Death Note\", un estudiante de secundaria encuentra un cuaderno que le permite matar a cualquier persona escribiendo su nombre. ",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 4,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "16",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = "32",
+                            AnswerTitle = "falso",
                             IsCorrect = false
+
                         },
-                        new Answer
-                        {
-                            AnswerTitle = "24",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "56",
-                            IsCorrect = false
-                        }
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "X way did Jimmi Hendrix play his guitar, left-handed or right-handed?",
+                    QuestionTitle = "La serie \"Stranger Things\" se desarrolla en un mundo postapocalíptico invadido por zombis.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 4,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "El anime \"Dragon Ball Z\" sigue las aventuras de un niño llamado Goku mientras protege la Tierra de amenazas extraterrestres.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 4,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                //lvl 2
+                new Question
+                {
+                    QuestionTitle = "La serie \"Breaking Bad\" sigue la historia de un profesor de química que se convierte en un respetado científico.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 5,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "En el anime \"Fullmetal Alchemist\", dos hermanos alquimistas buscan la Piedra Filosofal para restaurar sus cuerpos.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 5,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "\"The Walking Dead\" es una serie que narra las aventuras de un grupo de supervivientes en un mundo postapocalíptico lleno de zombis.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 5,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "El anime \"One Punch Man\" cuenta la historia de un superhéroe extremadamente poderoso que puede derrotar a cualquier enemigo con un solo golpe.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 5,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "La serie \"Game of Thrones\" se basa en una serie de libros escritos por George R.R. Martin.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 5,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "En el anime \"My Hero Academia\", la mayoría de las personas tienen superpoderes conocidos como \"Quirks\". ",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 5,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "La serie \"Sherlock\" está basada en los libros de Arthur Conan Doyle sobre el famoso detective Sherlock Holmes. ",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 5,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                //lvl 3
+                new Question
+                {
+                    QuestionTitle = "En el anime \"Sword Art Online\", los jugadores quedan atrapados en un juego de realidad virtual y deben luchar por su supervivencia.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 6,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "La serie \"The Office\" es un falso documental que sigue las vidas de los empleados de una oficina de papel en Scranton, Pennsylvania.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 6,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "El anime \"Cowboy Bebop\" sigue las aventuras de un grupo de cazarrecompensas en el futuro. ",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 6,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "La serie \"Stranger Things\" fue creada por los hermanos Duffer. ",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 6,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "En el anime \"Attack on Titan\", los seres humanos luchan contra gigantes devoradores de personas. ",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 6,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "La serie \"The Big Bang Theory\" sigue la vida de un grupo de amigos científicos que viven juntos.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 6,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "En el anime \"One Piece\", Monkey D. Luffy es un cazador de tesoros en busca del mapa del tesoro más buscado.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 6,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+
+                        },
+                    }
+                },
+                //propiedad intelectual
+                new Question
+                {
+                    QuestionTitle = "La propiedad intelectual se refiere a los derechos legales sobre obras creativas e inventivas",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 7,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "How",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = "When",
+                            AnswerTitle = "falso",
                             IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "Which",
-                            IsCorrect = false
+
                         },
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "How many Oscars X Joan Crawford win? ",
+                    QuestionTitle = "El copyright es un tipo de protección legal para obras literarias, artísticas y musicales. ",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 7,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "Do",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "Did",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
-
                         new Answer
                         {
-                            AnswerTitle = "Done",
+                            AnswerTitle = "falso",
                             IsCorrect = false
+
                         },
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = " X area of Paris was the setting of the film ‘Can - Can' ?",
+                    QuestionTitle = "Las marcas registradas protegen los nombres, logotipos y símbolos que identifican a productos o servicios.",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 7,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "Wish",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "What",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
-
                         new Answer
                         {
-                            AnswerTitle = "Where",
+                            AnswerTitle = "falso",
                             IsCorrect = false
+
                         },
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = " What is a Gametophobic bachelor afraid X",
+                    QuestionTitle = "Las ideas no pueden ser protegidas por la propiedad intelectual. ",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 7,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "On",
+                            AnswerTitle = "verdadero",
                             IsCorrect = false
                         },
                         new Answer
                         {
-                            AnswerTitle = "By",
-                            IsCorrect = false
-                        },
-
-                        new Answer
-                        {
-                            AnswerTitle = "Of",
+                            AnswerTitle = "falso",
                             IsCorrect = true
+
                         },
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "Chives are the cousin of X Vegetables?",
+                    QuestionTitle = "El plazo de protección de los derechos de autor es de 100 años desde la muerte del autor. ",
                     QuestionType = QuestionType.MultipleChoice,
                     CategoryQuizId = 7,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "When",
+                            AnswerTitle = "verdadero",
                             IsCorrect = false
                         },
                         new Answer
                         {
-                            AnswerTitle = "Than",
-                            IsCorrect = false
-                        },
+                            AnswerTitle = "falso",
+                            IsCorrect = true
 
-                        new Answer
-                        {
-                            AnswerTitle = "Which",
-                            IsCorrect = true
                         },
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿Cómo se denomina la parte del cuerpo donde se juntan dos o más huesos?",
+                    QuestionTitle = "Las patentes protegen invenciones y descubrimientos nuevos y útiles. ",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryQuizId = 10,
+                    CategoryQuizId = 7,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "Articulaciones",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = "Tendones",
+                            AnswerTitle = "falso",
                             IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "Cartílagos.",
-                            IsCorrect = false
-                        }
-                    }
-                },
-                new Question
-                {
-                    QuestionTitle = "¿Cómo se clasifican los animales según tengan columna vertebral o no?",
-                    QuestionType = QuestionType.MultipleChoice,
-                    CategoryQuizId = 10,
-                    Answers = new Answer[]
-                    {
-                        new Answer 
-                        {
-                            AnswerTitle = "Animales vertebrados y animales invertebrados.",
-                            IsCorrect = true
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "Animales ovíparos o vivíparos.",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "Animales carnívoros, herbívoros u omnívoros.",
-                            IsCorrect = false
-                        }
-                    }
-                },
-                new Question
-                {
-                    QuestionTitle = " ¿Cómo se llama el proceso por el cual las plantas elaboran su alimento?",
-                    QuestionType = QuestionType.MultipleChoice,
-                    CategoryQuizId = 10,
-                    Answers = new Answer[]
-                    {
-                        new Answer
-                        {
-                            AnswerTitle = " Fotosíntesis.",
-                            IsCorrect = true
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = " Relación.",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = " Nutrición.",
-                            IsCorrect = false
-                        }
 
+                        },
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿Para qué sirve la raíz de lasplantas?",
+                    QuestionTitle = "El fair use es una excepción en el derecho de autor que permite el uso limitado de material protegido sin permiso del titular de los derechos. ",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryQuizId = 10,
+                    CategoryQuizId = 7,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "Para absorber agua de la tierra.",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = "Para hacer la fotosíntesis.",
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                //lvl 2
+                new Question
+                {
+                    QuestionTitle = "El registro de una marca es válido internacionalmente en todos los países. ",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 8,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
                             IsCorrect = false
                         },
                         new Answer
                         {
-                            AnswerTitle = "Para poder reproducirse.",
-                            IsCorrect = false
-                        }
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+
+                        },
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = " ¿Qué absorbe la planta a través de sus hojas?",
+                    QuestionTitle = "El dominio público se refiere a obras que han perdido su protección de derechos de autor y pueden ser utilizadas libremente. ",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryQuizId = 10,
+                    CategoryQuizId = 8,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "Oxígeno.",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = " Dióxido de carbono.",
+                            AnswerTitle = "falso",
                             IsCorrect = false
+
                         },
-                        new Answer
-                        {
-                            AnswerTitle = "Gases.",
-                            IsCorrect = false
-                        }
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿Cuántos departamentos tiene El Salvador?",
+                    QuestionTitle = "El plagio se refiere a la copia no autorizada de una obra protegida por derechos de autor.",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryQuizId = 13,
+                    CategoryQuizId = 8,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "10",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "5",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "15",
-                            IsCorrect = false
-                        },
-                         new Answer
-                        {
-                            AnswerTitle = "14",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
-                        }
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = " ¿En qué año El Salvador surge como país?",
+                    QuestionTitle = "Las patentes tienen una duración de 20 años a partir de la fecha de presentación de la solicitud. ",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryQuizId = 13,
+                    CategoryQuizId = 8,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "1941",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = "1950",
+                            AnswerTitle = "falso",
                             IsCorrect = false
+
                         },
-                        new Answer
-                        {
-                            AnswerTitle = "1930",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "1960",
-                            IsCorrect = false
-                        }
-                    }
-                },
-                new Question    
-                {
-                    QuestionTitle = "¿Qué cultivo impulso al general Gerardo barrios?",
-                    QuestionType = QuestionType.MultipleChoice,
-                    CategoryQuizId = 13,
-                    Answers = new Answer[]
-                    {
-                        new Answer
-                        {
-                            AnswerTitle = "Caña de azúcar",
-                            IsCorrect = false
-                        },
-                        new Answer
-                            {
-                            AnswerTitle = "El Café",
-                            IsCorrect = true
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "Algodón",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "El Maiz",
-                            IsCorrect = false
-                        }
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿Qué cultivo impulso al general Gerardo barrios?",
+                    QuestionTitle = "Las obras derivadas son creaciones basadas en una obra existente, pero con suficientes cambios para ser consideradas originales. ",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryQuizId = 13,
+                    CategoryQuizId = 8,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "Francisco Menéndez",
-                            IsCorrect = false
-                        },
-                        new Answer
-                            {
-                            AnswerTitle = "Maximiliano Hernández Martínez",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = "Alfredo Cristiani",
+                            AnswerTitle = "falso",
                             IsCorrect = false
+
                         },
-                        new Answer
-                        {
-                            AnswerTitle = "Elías Antonio Saca",
-                            IsCorrect = false
-                        }
                     }
                 },
                 new Question
                 {
-                    QuestionTitle = "¿En qué año inicio la guerra civil en El Salvador ?",
+                    QuestionTitle = "Los derechos morales protegen el vínculo entre el autor y su obra, incluyendo el derecho a ser reconocido como autor y el derecho a la integridad de la obra. ",
                     QuestionType = QuestionType.MultipleChoice,
-                    CategoryQuizId = 13,
+                    CategoryQuizId = 8,
                     Answers = new Answer[]
                     {
                         new Answer
                         {
-                            AnswerTitle = "1981",
+                            AnswerTitle = "verdadero",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            AnswerTitle = "1999",
+                            AnswerTitle = "falso",
                             IsCorrect = false
+
                         },
-                        new Answer
-                        {
-                            AnswerTitle = "1950",
-                            IsCorrect = false
-                        },
-                        new Answer
-                        {
-                            AnswerTitle = "1955",
-                            IsCorrect = false
-                        }
                     }
                 },
+                new Question
+                {
+                    QuestionTitle = "El registro de derechos de autor es necesario para obtener protección legal. ",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 8,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+
+                        },
+                    }
+                },
+                //lvl 3
+                new Question
+                {
+                    QuestionTitle = "Las licencias Creative Commons son un tipo de licencia que permite a los creadores otorgar ciertos derechos de uso a otras personas",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 9,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "El secreto comercial protege la información confidencial que da a una empresa una ventaja competitiva.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 9,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "Las ideas son automáticamente protegidas por derechos de autor.",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 9,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "El término \"marca comercial\" y \"marca registrada\" son sinónimos. ",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 9,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "La protección de derechos de autor se aplica automáticamente tan pronto ",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 9,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "Las obras anónimas no pueden estar protegidas por derechos de autor. ",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 9,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = true
+
+                        },
+                    }
+                },
+                new Question
+                {
+                    QuestionTitle = "Las patentes pueden ser otorgadas para métodos de negocio y software. ",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 9,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "verdadero",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "falso",
+                            IsCorrect = false
+
+                        },
+                    }
+                },
+
+
+
+
+
+
+
+
+
+
+
             };
 
             var userQuizzes = new UserQuiz[]
@@ -879,7 +1435,7 @@ namespace quiz_api_dotnet7.Data
             };
 
             context.Users.AddRange(users);
-            context.Categories.AddRange(categories);            
+            context.Categories.AddRange(categories);
             context.CategoryQuizzes.AddRange(categoryQuizzes);
             context.Questions.AddRange(questions);
             context.UserQuizzes.AddRange(userQuizzes);
