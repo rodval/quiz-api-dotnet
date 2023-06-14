@@ -42,7 +42,7 @@ namespace quiz_api_dotnet7.Services
 
             var quizResponse = new UserQuiz
             {
-                Score = userQuiz.Score,
+                Score = userQuiz.Score * 2,
                 CategoryQuizId = userQuiz.CategoryQuizId,
                 UserId = userId
             };
