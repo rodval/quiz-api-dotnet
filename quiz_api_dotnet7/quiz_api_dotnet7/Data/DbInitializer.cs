@@ -137,6 +137,43 @@ namespace quiz_api_dotnet7.Data
                     Level = 3,
                     CategoryId = 3,
                 },
+                new CategoryQuiz
+                {
+                    Id = 10,
+                    Level = 1,
+                    CategoryId = 4,
+                },
+                new CategoryQuiz
+                {
+                    Id = 11,
+                    Level = 2,
+                    CategoryId = 4,
+                },
+                new CategoryQuiz
+                {
+                    Id = 12,
+                    Level = 3,
+                    CategoryId = 4,
+                },
+                new CategoryQuiz
+                {
+                    Id = 13,
+                    Level = 1,
+                    CategoryId = 5,
+                },
+                new CategoryQuiz
+                {
+                    Id = 14,
+                    Level = 2,
+                    CategoryId = 5,
+                },
+                new CategoryQuiz
+                {
+                    Id = 15,
+                    Level = 3,
+                    CategoryId = 5,
+                },
+
 
             };
 
@@ -1396,18 +1433,1744 @@ namespace quiz_api_dotnet7.Data
                         },
                     }
                 },
-
-
-
-
-
-
-
-
-
-
-
+                //Musica
+                new Question
+                {
+                    QuestionTitle = "¿Cuál es el instrumento musical más antiguo del mundo?",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 10,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "La flauta",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "El tambor",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "La Guitarra",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "El bajo",
+                            IsCorrect = false
+                        },
+                    },
+                };
+                new Question{
+                    QuestionTitle = "¿Qué famoso compositor alemán escribió la Novena Sinfonía?",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 10,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "Ludwig van Beethoven",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Wolfgang Amadeus Mozart",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Johann Sebastian Bach",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Frédéric Chopin",
+                            IsCorrect = false
+                        }
+                    },
             };
+                new Question{
+                    QuestionTitle = "¿Cuál es el género musical originario de Jamaica que fusiona el ska y el rocksteady?",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 10,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "El reggae",
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "El reggaeton",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Samba",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Lambada",
+                            IsCorrect = false
+                        }
+                    },
+            };
+                new Question{
+                    QuestionTitle = "¿Qué cantante es conocido como El Rey del Pop?",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 10,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "Michael Jackson"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Madona",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Héctor Lavoe",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Don Omar",
+                            IsCorrect = false
+                        }
+                    },
+            };            
+                new Question{
+                    QuestionTitle = "¿Qué instrumento toca Yo-Yo Ma?",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 10,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "El violonchelo"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Cimitarra",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Erhu",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Shamisen",
+                            IsCorrect = false
+                        }
+                    },
+                   };
+                new Question{
+                    QuestionTitle = "¿Cuál es la banda de rock liderada por Mick Jagger?",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 10,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "The Rolling Stones
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "The Beatles",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Metallica",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Pink Floyd",
+                            IsCorrect = false
+                        }
+                    },
+            };
+                new Question{
+                    QuestionTitle = "¿Qué instrumento es conocido como el rey de los instrumentos?",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 10,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "El órgano"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "La guitarra eléctrica",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "La batería",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Bajo eléctrico",
+                            IsCorrect = false
+                        }
+                    },
+            };
+                new Question{
+                    QuestionTitle = "¿Cuál es el género musical que se caracteriza por su ritmo sincopado y su origen en Nueva Orleans?",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 10,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "El Jazz"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Rock and roll",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Blues",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "country",
+                            IsCorrect = false
+                        }
+                    },
+                 };
+                new Question{
+                    QuestionTitle = "¿Quién compuso la famosa ópera \"La Traviata\"?",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 10,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "Giuseppe Verdi"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Christoph Willibald Gluck",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Domenico Cimarosa",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Giacomo Meyerbeer",
+                            IsCorrect = false
+                        }
+                    },
+                };
+                new Question{
+                    QuestionTitle = "¿Qué banda británica alcanzó fama mundial con su álbum Sgt. Pepper's Lonely Hearts Club Band ?",
+                    QuestionType = QuestionType.MultipleChoice,
+                    CategoryQuizId = 10,
+                    Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "The Beatles"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Led Zeppelin",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Pink Floyd",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Queen",
+                            IsCorrect = false
+                        }
+                    },
+            };
+                //lvl 2
+                new Question
+            {
+                QuestionTitle = "¿Qué cantante interpretó la canción \"Like a Prayer\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "Madonna"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Céline Dion",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Mariah Carey",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Beyoncé",
+                            IsCorrect = false
+                        }
+                    },
+            };
+                new Question{
+                QuestionTitle = "¿Cuál es el nombre completo de la cantante conocida como Lady Gaga?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]{
+                        new Answer
+                        {
+                            AnswerTitle = "Stefani Joanne Angelina Germanotta"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Giselle Knowles",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Destiny Hope",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Carolina Giraldo Navarro",
+                            IsCorrect = false
+                        }
+                    },
+                };
+                new Question{
+                QuestionTitle = "¿Cuál es el género musical originario de Brasil que se caracteriza por su ritmo y sensualidad?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+                    {
+                        new Answer
+                        {
+                            AnswerTitle = "La samba"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Lambada",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Merengue",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Reggaeton",
+                            IsCorrect = false
+                        }
+                    },
+            };
+                new Question{
+                QuestionTitle = "¿Cuál es el compositor más famoso del periodo barroco?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+                 {
+                        new Answer
+                        {
+                            AnswerTitle = "Johann Sebastian Bach"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Ludwig van Beethoven",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Wolfgang Amadeus Mozart",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Frédéric Chopin",
+                            IsCorrect = false
+                        }
+                 },
+            };
+                new Question{
+                QuestionTitle = "¿Qué instrumento es fundamental en la música flamenca?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+                {
+                        new Answer
+                        {
+                            AnswerTitle = "La guitarra"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "El Bajo",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Las Maracas",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Las Castañas",
+                            IsCorrect = false
+                        }
+                },
+            };
+                new Question{
+                QuestionTitle = "¿Qué banda de rock británica escribió la canción \"Bohemian Rhapsody\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+                {
+                        new Answer
+                        {
+                            AnswerTitle = "Queen"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "The Beatles",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Pink Floyd",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Led Zeppelin",
+                            IsCorrect = false
+                        }
+                },
+            };
+                new Question{
+                QuestionTitle = "¿Qué instrumento toca Carlos Santana?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+                {
+                        new Answer
+                        {
+                            AnswerTitle = "Guitarra"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Bajo",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Maracas",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Trompeta",
+                            IsCorrect = false
+                        }
+                },
+            };
+                new Question{
+                QuestionTitle = "¿Cuál es el nombre artístico de la cantante y actriz Stefani Germanotta?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+           {
+                        new Answer
+                        {
+                            AnswerTitle = "Lady Gaga"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Mariah Carey",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Aretha Franklin",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Whitney Houston",
+                            IsCorrect = false
+                        }
+           },
+            };
+                new Question{
+                QuestionTitle = "¿Qué cantante de soul y R&B es conocida como \"The Queen of Soul\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+           {
+                        new Answer
+                        {
+                            AnswerTitle = "Aretha Franklin"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Christina Aguilera",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Tina Turner",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Ella Fitzgerald",
+                            IsCorrect = false
+                        }
+           },
+            };
+                new Question{
+                QuestionTitle = "¿Quién es el compositor de la famosa obra \"El Danubio Azul\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+          {
+                        new Answer
+                        {
+                            AnswerTitle = "Johann Strauss II"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Richard Wagner",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Antonín Dvořák",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Piotr Ilich Chaikovski",
+                            IsCorrect = false
+                        }
+          },
+            };
+                //lvl 3
+                new Question{
+                QuestionTitle = "¿Qué instrumento de viento metal es conocido como \"el rey de los instrumentos de viento\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+     {
+                        new Answer
+                        {
+                            AnswerTitle = "La trompeta"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "La tuba",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Trombón",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Saxofón",
+                            IsCorrect = false
+                        }
+     },
+            };
+                new Question{
+                QuestionTitle = "¿Cuál es el género musical que surgió en Jamaica a finales de la década de 1960 y popularizó Bob Marley?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+    {
+                        new Answer
+                        {
+                            AnswerTitle = "El reggae"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "El reggaeton",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Jazz",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Blues",
+                            IsCorrect = false
+                        }
+    },
+            };
+                new Question{
+                QuestionTitle = "¿Qué cantante británico es conocido por su alter ego Ziggy Stardust?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "David Bowie"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Freddie Mercury",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Elton John",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "John Lennon",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el instrumento principal en una orquesta sinfónica?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "La viola"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "El violin",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "La Tuba",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "La Flauta",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del famoso grupo de rock británico conocido por su álbum \"Stairway to Heaven\" y su icónica canción \"Kashmir\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Led Zeppelin"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Guns N' Roses",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "The Beatles",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Queen",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre completo del famoso guitarrista de rock, conocido por su interpretación en la banda Guns N' Roses?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Slash"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Freddie Mercury",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Paul Stanley",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Ace Frehley",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿Qué famoso músico y compositor austriaco fue un prodigio en el piano desde temprana edad y compuso numerosas sinfonías y sonatas?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Wolfgang Amadeus Mozart"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Johann Sebastian Bach",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Ludwig Van Beethoven",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Antonio Vivaldi",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿Qué género musical se originó en la ciudad de Nueva Orleans a principios del siglo XX y se caracteriza por su ritmo alegre y sus improvisaciones?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Jazz"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Country",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Blues",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Rap",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "Qué famosa cantante estadounidense es conocida como la \"Reina del Soul\" y es famosa por canciones como \"Respect\" y \"Chain of Fools\"",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Aretha Franklin"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Whitney Houston",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Tina Turner",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Patti LaBelle",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el género musical que combina elementos del rock y el hip-hop, y se originó en los barrios afroamericanos de Nueva York en la década de 1970?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 11,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "El rap"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "rock",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "hip-hop",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Disco",
+                            IsCorrect = false
+                        }
+},
+            };
+                //Video Juegos
+                new Question
+            {
+                QuestionTitle = "¿En qué año se lanzó el videojuego \"Super Mario Bros.\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 12,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "1985"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1980",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1978",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1979",
+                            IsCorrect = false
+                        }
+                      },
+                };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del personaje principal de la saga de videojuegos \"The Legend of Zelda\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 12,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Link"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Ganon",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Zelda",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Impa",
+                            IsCorrect = false
+                        }
+                      },
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del fontanero italiano y hermano de Mario que protagoniza su propio videojuego?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 12,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Luigi"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Wario",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Waluigi",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Bowser",
+                            IsCorrect = false
+                        }
+                      },
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del fontanero italiano y hermano de Mario que protagoniza su propio videojuego?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 12,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Donkey Kong."
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Diddy Kong.",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "King Kong",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Bowser",
+                            IsCorrect = false
+                        }
+                  },
+            };
+                new Question
+            {
+                QuestionTitle = "¿En qué año se lanzó el videojuego \"Pokémon Red and Green\" en Japón?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 12,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "1996."
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1993.",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1998",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1997",
+                            IsCorrect = false
+                        }
+                  },
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del personaje icónico y mascota de SEGA?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 12,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Sonic."
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Rocket.",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Crash Bandicoot",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Ratchet",
+                            IsCorrect = false
+                        }
+                  },
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del popular juego de construcción y exploración en un mundo abierto creado por Mojang Studios?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 12,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Minecraft"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Zelda",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Final Fantasy",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "League Of Legends",
+                            IsCorrect = false
+                        }
+                  },
+            };
+                new Question
+            {
+                QuestionTitle = "¿En qué año se lanzó el videojuego \"Tetris\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 12,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "1984"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1985",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1987",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1990",
+                            IsCorrect = false
+                        }
+                 },
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del personaje principal en la saga de videojuegos \"Final Fantasy VII\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 12,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Cloud Strife"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Tommy Vercetti",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Link",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Samus Aran",
+                            IsCorrect = false
+                        }
+                 },
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del famoso erizo azul que protagoniza una serie de videojuegos?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 12,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Sonic"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Crash Bandicoot",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Ratchet",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Yoshi",
+                            IsCorrect = false
+                        }
+                 },
+            };
+                //Lv2
+                new Question
+            {
+                QuestionTitle = "¿En qué año se lanzó el videojuego \"Grand Theft Auto V\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 13,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "2013"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2016",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2018",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2012",
+                            IsCorrect = false
+                        }
+                 },
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del personaje principal en la saga de videojuegos \"The Witcher\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 13,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Geralt de Rivia"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Samus Aran",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Solid Snake",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Nathan Drake",
+                            IsCorrect = false
+                        }
+                 },
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del popular juego de battle royale desarrollado por Epic Games?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 13,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Fortnite"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "WarZone ",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "PlayerUnknown's Battlegrounds",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Free Fire",
+                            IsCorrect = false
+                        }
+                 },
+            };
+                new Question
+            {
+                QuestionTitle = "¿En qué año se lanzó el videojuego \"World of Warcraft\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 13,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "2004"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2006",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2000",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2002",
+                            IsCorrect = false
+                        }
+                },
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del personaje principal en la saga de videojuegos \"Uncharted\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 13,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Nathan Drake"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Lara Croft",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Cloud Strife",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Axel Steel",
+                            IsCorrect = false
+                        }
+   },
+            };
+                new Question
+            {
+                QuestionTitle = "¿En qué año se lanzó el videojuego \"The Legend of Zelda: Ocarina of Time\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 13,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "1998"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1996",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1992",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1994",
+                            IsCorrect = false
+                        }
+  },
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del personaje principal en la saga de videojuegos \"Assassin's Creed\" más conocido?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 13,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Desmond Miles."
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Nathan Drake",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Dante",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Marcus Fenix",
+                            IsCorrect = false
+                        }
+  },
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del popular juego de plataformas en 3D desarrollado por Naughty Dog?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 13,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Crash Bandicoot"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Sonic",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Astro Bot Rescue Mission",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Sackboy A Big Adventure",
+                            IsCorrect = false
+                        }
+  },
+            };
+                new Question
+            {
+                QuestionTitle = "¿En qué año se lanzó el videojuego \"Mortal Kombat\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 13,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "1992"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1996",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1994",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "1998",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del personaje principal en la saga de videojuegos \"Metal Gear Solid\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 13,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Solid Snake"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Master Chief",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Ryu",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Arthur Morgan",
+                            IsCorrect = false
+                        }
+},
+            };
+                //Lv3
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del popular juego de disparos en primera persona desarrollado por Valve?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 14,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Counter-Strike"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Valorant",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Battlefield",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Call of Duty",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿En qué año se lanzó el videojuego \"The Elder Scrolls V: Skyrim\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 14,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "2008"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2011",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2009",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2013",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál fue el primer videojuego de la serie \"Final Fantasy\" lanzado en 1987?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 14,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Final Fantasy I"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Final Fantasy 0",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Final Fantasy Tactics",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Final Fantasy Anthology",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del personaje principal en la saga de videojuegos \"God of War\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 14,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Kratos"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Zeus",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Ares",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Hades",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del popular juego de aventuras y acción en mundo abierto desarrollado por Rockstar Games?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 14,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Red Dead Redemption"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "GTAV",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Bully",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "LA.Noire",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿En qué año se lanzó el videojuego \"Super Smash Bros. Ultimate\" para la consola Nintendo Switch?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 14,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "2018"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2016",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2017",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2015",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del personaje principal en la saga de videojuegos \"Halo\"?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 14,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "Master Chief "
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Marcus Fenix",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Nathan Drake",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Arthur Morgan",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿Cuál es el nombre del popular juego de estrategia en tiempo real desarrollado por Blizzard Entertainment?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 14,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "StarCraft"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Hearthstone",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "Diablo",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "World of Warcraft",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿En qué año se lanzó el videojuego \"The Last of Us\" para la consola PlayStation 3?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 14,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "2013"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2014",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2015",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2012",
+                            IsCorrect = false
+                        }
+},
+            };
+                new Question
+            {
+                QuestionTitle = "¿En qué año se lanzó el videojuego The Legend of Zelda Breath of The Wild?",
+                QuestionType = QuestionType.MultipleChoice,
+                CategoryQuizId = 14,
+                Answers = new Answer[]
+{
+                        new Answer
+                        {
+                            AnswerTitle = "2017"
+                            IsCorrect = true
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2018",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2016",
+                            IsCorrect = false
+                        },
+                        new Answer
+                        {
+                            AnswerTitle = "2013",
+                            IsCorrect = false
+                        }
+},
+            };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             var userQuizzes = new UserQuiz[]
             {
@@ -1433,7 +3196,6 @@ namespace quiz_api_dotnet7.Data
                     Score = 7,
                 },
             };
-
             context.Users.AddRange(users);
             context.Categories.AddRange(categories);
             context.CategoryQuizzes.AddRange(categoryQuizzes);
