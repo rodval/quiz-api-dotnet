@@ -1,9 +1,9 @@
 ﻿using quiz_api_dotnet7.Utilities;
 using System.ComponentModel.DataAnnotations;
 
-namespace quiz_api_dotnet7.Models.Auth.Register
+namespace quiz_api_dotnet7.Models.Auth.SignUp
 {
-    public class RegisterRequest
+    public class SignUpRequest
     {
         [Required]
         public string? FirstName { get; set; }

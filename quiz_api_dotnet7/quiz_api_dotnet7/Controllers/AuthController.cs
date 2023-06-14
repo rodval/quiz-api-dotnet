@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using quiz_api_dotnet7.Interfaces;
-using quiz_api_dotnet7.Models.Auth.Login;
-using quiz_api_dotnet7.Models.Auth.Register;
+using quiz_api_dotnet7.Models.Auth.SignIn;
+using quiz_api_dotnet7.Models.Auth.SignUp;
 
 namespace quiz_api_dotnet7.Controllers
 {
@@ -18,10 +18,10 @@ namespace quiz_api_dotnet7.Controllers
         }
 
         [HttpPost]
-        [Route("Login")]
-        public ActionResult<LoginResponse> Login([FromBody]LoginRequest login)
+        [Route("SignIn")]
+        public ActionResult<SignInResponse> SignIn([FromBody]SignInRequest login)
         {
-            var response = _service.Login(login);
+            var response = _service.SignIn(login);
 
             if (response is not null)
             {
@@ -36,10 +36,10 @@ namespace quiz_api_dotnet7.Controllers
         }
 
         [HttpPost]
-        [Route("Register")]
-        public ActionResult<RegisterRequest> Register([FromBody]RegisterRequest user)
+        [Route("SignUp")]
+        public ActionResult<SignUpRequest> SignUp([FromBody]SignUpRequest user)
         {
-            var response = _service.Register(user);
+            var response = _service.SignUp(user);
 
             if (response is not null)
             {

@@ -1,9 +1,9 @@
 ﻿using NuGet.Common;
 using quiz_api_dotnet7.Models.Common;
 
-namespace quiz_api_dotnet7.Models.Auth.Login
+namespace quiz_api_dotnet7.Models.Auth.SignIn
 {
-    public class LoginResponse : BaseResponse
+    public class SignInResponse : BaseResponse
     {
         public string? Result { get; set; }
     }

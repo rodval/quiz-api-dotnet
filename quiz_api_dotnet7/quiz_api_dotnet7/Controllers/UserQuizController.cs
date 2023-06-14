@@ -48,7 +48,7 @@ namespace quiz_api_dotnet7.Controllers
         public ActionResult<UserQuizCommandResponse> SaveUserQuiz([FromBody] UserQuizCommandRequest userQuiz)
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
-            var tokenResponse = CustomJwt.validateToken(identity);
+            var tokenResponse = CustomJwt.ValidateToken(identity);
 
             if (!tokenResponse.Success) return BadRequest(tokenResponse);
 
